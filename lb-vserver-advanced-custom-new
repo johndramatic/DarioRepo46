@@ -3,7 +3,7 @@ name: lb-vserver-advanced-custom-new
 namespace: com.citrix.adc.stylebooks
 version: "1.1"
 display-name: "HTTP/SSL LoadBalancing Custom StyleBook"
-description: "This custom stylebook defines a typical Load Balanced Application configuration."
+description: "This custom stylebook defines a typical Load Balanced Application configuration.-New"
 schema-version: "1.0"
 import-stylebooks: 
   - 
