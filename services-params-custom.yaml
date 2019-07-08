@@ -1,7 +1,7 @@
 --- 
 name: services-params-custom
 namespace: com.citrix.adc.commontypes
-version: "1.1"
+version: "1.2"
 description: "This stylebook defines the parameters for services."
 private: true
 schema-version: "1.0"
