@@ -1,5 +1,5 @@
 --- 
-name: lb-vserver-advanced-custom
+name: lb-vserver-advanced-custom-new
 namespace: com.citrix.adc.stylebooks
 version: "1.1"
 display-name: "HTTP/SSL LoadBalancing Custom StyleBook"
