@@ -43,14 +43,6 @@ parameters:
       - UDP
       - ANY
   - 
-    name: lb-virtual-port
-    label: "Load Balanced App Virtual Port"
-    description: "TCP port representing the Load Balanced application"
-    type: tcp-port
-    gui:
-      updatable: false
-    default: 443
-  - 
     name: lb-advanced
     label: "Advanced Load Balancer Settings"
     description: "Advanced load balancer settings"
