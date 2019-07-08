@@ -27,14 +27,6 @@ parameters:
     type: ipaddress
     required: true
   - 
-    name: lb-virtual-port
-    label: "Load Balanced App Virtual Port"
-    description: "TCP port representing the Load Balanced application"
-    type: tcp-port
-    gui:
-      updatable: false
-    default: 443
-  - 
     name: lb-service-type
     label: "Load Balanced App Protocol"
     description: "Protocol used for the Load Balanced application."
@@ -50,6 +42,14 @@ parameters:
       - TCP
       - UDP
       - ANY
+  - 
+    name: lb-virtual-port
+    label: "Load Balanced App Virtual Port"
+    description: "TCP port representing the Load Balanced application"
+    type: tcp-port
+    gui:
+      updatable: false
+    default: 443
   - 
     name: lb-advanced
     label: "Advanced Load Balancer Settings"
