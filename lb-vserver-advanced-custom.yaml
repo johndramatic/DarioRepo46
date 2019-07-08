@@ -20,7 +20,7 @@ import-stylebooks:
     version: "1.0"
 parameters-default-sources:
   - cmtypes::lbvserver-params-custom
-  - cmtypes::services-params-custom
+  - cmtypes::services-params
 parameters: 
   - 
     name: certificates
