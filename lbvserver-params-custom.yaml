@@ -1,5 +1,5 @@
 --- 
-name: lbvserver-params
+name: lbvserver-params-custom
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines the parameters for a load balancing virtual server."
