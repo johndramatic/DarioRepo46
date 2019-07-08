@@ -19,8 +19,8 @@ import-stylebooks:
     prefix: stlb
     version: "1.0"
 parameters-default-sources:
-  - cmtypes::lbvserver-params-custom
-  - cmtypes::services-params-custom
+  - cmtypes::lbvserver-params-custom-new
+  - cmtypes::services-params-custom-new
 parameters: 
   - 
     name: certificates
