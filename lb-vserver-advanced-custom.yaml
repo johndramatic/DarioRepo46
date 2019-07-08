@@ -2,8 +2,8 @@
 name: lb-vserver-advanced-custom
 namespace: com.citrix.adc.stylebooks
 version: "1.1"
-display-name: "HTTP/SSL LoadBalancing Custom StyleBook-New"
-description: "This custom stylebook defines a typical Load Balanced Application configuration.-New"
+display-name: "HTTP/SSL LoadBalancing Custom StyleBook"
+description: "This custom stylebook defines a typical Load Balanced Application configuration."
 schema-version: "1.0"
 import-stylebooks: 
   - 
@@ -19,8 +19,8 @@ import-stylebooks:
     prefix: stlb
     version: "1.0"
 parameters-default-sources:
-  - cmtypes::lbvserver-params-custom
-  - cmtypes::services-params-custom
+  - cmtypes::lbvserver-params
+  - cmtypes::services-params
 parameters: 
   - 
     name: certificates
@@ -32,12 +32,12 @@ components:
     name: lbvserver-comp
     type: ns::lbvserver
     properties: 
-      name: $parameters.lb-appname + "-LB_VSERVER"
+      name: $parameters.lb-appname + "-lb"
       servicetype: $parameters.lb-service-type
       ipv46: $parameters.lb-virtual-ip
       port?: $parameters.lb-virtual-port
-      lbmethod?: $parameters.lb-algorithm
-      persistencetype?: $parameters.lb-persistence
+      lbmethod?: $parameters.lb-advanced.algorithm
+      persistencetype?: $parameters.lb-advanced.persistence
       persistencebackup?: $parameters.lb-advanced.persistence-backup
       backuppersistencetimeout?: $parameters.lb-advanced.backup-persistence-timeout
       clttimeout?: $parameters.lb-advanced.client-timeout
@@ -53,13 +53,13 @@ components:
       authnvsname?: $parameters.lb-advanced.auth-params.authentication-vserver-name
       authn401?: $parameters.lb-advanced.auth-params.authentication-http-401
       appflowlog?: $parameters.lb-advanced.appflow-log
-      comment?: $parameters.Request_id + " | " + $parameters.Owner
+      comment?: $parameters.lb-advanced.comment
     components: 
       - 
         name: servicegroup-comp
         type: ns::servicegroup
         properties: 
-          servicegroupname: $parameters.lb-appname + "-SRVGRP"
+          servicegroupname: $parameters.lb-appname + "-svcgrp"
           servicetype: $parameters.svc-service-type
           cip?: $parameters.svcg-advanced.svc-client-ip
           cipheader?: $parameters.svcg-advanced.svc-client-ip-header
@@ -78,7 +78,7 @@ components:
           downstateflush?: $parameters.svcg-advanced.svc-downstate-flush
           state?: $parameters.svcg-advanced.svc-state
           healthmonitor?: $parameters.svcg-advanced.svc-enable-health-monitor
-          comment?: $parameters.Request_id + " | " + $parameters.Owner
+          comment?: $parameters.svcg-advanced.svc-comment
         components: 
           - 
             name: lbvserver-svg-binding
@@ -112,7 +112,7 @@ components:
         repeat: $parameters.svc-server-domains
         repeat-item: server
         properties: 
-          name: $server.domain + "-SERVER"
+          name: $server.domain + "-server"
           domain: $server.domain
       -
         name: service-members
