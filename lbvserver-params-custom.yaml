@@ -51,28 +51,6 @@ parameters:
       updatable: false
     default: 443
   - 
-    name: algorithm
-    label: "Load Balanced App Algorithm"
-    description: "Load Balancing algorithm for the application"
-    type: string
-    default: LEASTCONNECTION        
-    allowed-values: 
-      - LEASTCONNECTION
-      - ROUNDROBIN
-      - LEASTRESPONSETIME
-      - SOURCEIPHASH
-  - 
-    name: persistence
-    label: "Load Balanced App Persistence Type"
-    description: "Persistence type used for members of this pool"
-    type: string
-    allowed-values: 
-      - NONE
-      - SOURCEIP
-      - COOKIEINSERT
-      - SRCIPDESTIP
-      - DESTIP   
-  - 
     name: lb-advanced
     label: "Advanced Load Balancer Settings"
     description: "Advanced load balancer settings"
@@ -82,6 +60,28 @@ parameters:
     parameters-default-sources:
       - cmtypes::vserver-advanced-params
     parameters:
+      - 
+        name: algorithm
+        label: "Load Balanced App Algorithm"
+        description: "Load Balancing algorithm for the application"
+        type: string
+        default: LEASTCONNECTION        
+        allowed-values: 
+          - LEASTCONNECTION
+          - ROUNDROBIN
+          - LEASTRESPONSETIME
+          - SOURCEIPHASH
+      - 
+        name: persistence
+        label: "Load Balanced App Persistence Type"
+        description: "Persistence type used for members of this pool"
+        type: string
+        allowed-values: 
+          - NONE
+          - SOURCEIP
+          - COOKIEINSERT
+          - SRCIPDESTIP
+          - DESTIP   
       - 
         name: persistence-backup
         label: "Load Balanced App Backup Persistence"
