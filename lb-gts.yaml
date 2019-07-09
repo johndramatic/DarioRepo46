@@ -36,8 +36,8 @@ components:
       servicetype: $parameters.lb-service-type
       ipv46: $parameters.lb-virtual-ip
       port?: $parameters.lb-virtual-port
-      lbmethod?: $parameters.lb-advanced.algorithm
-      persistencetype?: $parameters.lb-advanced.persistence
+      lbmethod?: $parameters.algorithm
+      persistencetype?: $parameters.persistence
       persistencebackup?: $parameters.lb-advanced.persistence-backup
       backuppersistencetimeout?: $parameters.lb-advanced.backup-persistence-timeout
       clttimeout?: $parameters.lb-advanced.client-timeout
