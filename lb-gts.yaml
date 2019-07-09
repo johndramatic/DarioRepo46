@@ -93,7 +93,7 @@ components:
             repeat-item: server
             repeat-condition: $server.add-server
             properties:
-              name: str($server.ip)
+              name: "ServerIP"
               ipaddress: $server.ip
           - 
             name: svg-ip-members
