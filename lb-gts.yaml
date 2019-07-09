@@ -53,7 +53,7 @@ components:
       authnvsname?: $parameters.lb-advanced.auth-params.authentication-vserver-name
       authn401?: $parameters.lb-advanced.auth-params.authentication-http-401
       appflowlog?: $parameters.lb-advanced.appflow-log
-      comment?: $parameters.lb-advanced.comment
+      comment?: $parameters.request-id + "|" +  $parameters.owner
     components: 
       - 
         name: servicegroup-comp

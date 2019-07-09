@@ -57,7 +57,7 @@ parameters:
     type: string
     required: true
   - 
-    name: owener
+    name: owner
     label: "Owner"
     description: "Service Owner"
     type: string
