@@ -59,7 +59,7 @@ parameters:
   - 
     name: owner
     label: "Owner"
-    description: "Service Owner"
+    description: "Service Owner-test"
     type: string
     required: true
   - 
