@@ -1,5 +1,5 @@
 --- 
-name: z-lb-gts
+name: alb-gts
 namespace: com.citrix.adc.stylebooks
 version: "1.1"
 display-name: "HTTP/SSL LoadBalancing StyleBook"
