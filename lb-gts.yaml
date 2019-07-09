@@ -78,7 +78,7 @@ components:
           downstateflush?: $parameters.svcg-advanced.svc-downstate-flush
           state?: $parameters.svcg-advanced.svc-state
           healthmonitor?: $parameters.svcg-advanced.svc-enable-health-monitor
-          comment?: $parameters.svcg-advanced.svc-comment
+          comment?: $parameters.request-id + "|" +  $parameters.owner
         components: 
           - 
             name: lbvserver-svg-binding
