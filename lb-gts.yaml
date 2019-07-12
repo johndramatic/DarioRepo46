@@ -33,7 +33,7 @@ components:
     type: ns::netprofile
     properties: 
       name: $parameters.lb-appname + "-netprof"
-      srcip: $parameters.snip
+      srcip: $parameters.SNIP
       srcippersistency: ENABLED
   - 
     name: lbvserver-comp

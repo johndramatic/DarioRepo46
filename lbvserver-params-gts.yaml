@@ -27,7 +27,7 @@ parameters:
     type: ipaddress
     required: true
   - 
-    name: snip
+    name: SNIP
     label: "SNIP"
     description: "SNIP used for backend connections"
     type: ipaddress
