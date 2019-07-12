@@ -29,11 +29,11 @@ parameters:
     type: "cmtypes::certificate[]"
 components: 
   - 
-    name: netprofile
+    name: net-prof
     type: ns::netprofile
     properties: 
       name: $parameters.lb-appname + "-netprof"
-      srcip: $parameters.SNIP
+      srcip: $parameters.snip
       srcippersistency: ENABLED
   - 
     name: lbvserver-comp
@@ -61,7 +61,7 @@ components:
       authn401?: $parameters.lb-advanced.auth-params.authentication-http-401
       appflowlog?: $parameters.lb-advanced.appflow-log
       comment?: $parameters.request-id + "|" +  $parameters.owner
-      netprofile: $components.netprofile.name
+      netprofile: $components.net-prof.properties.name
     components: 
       - 
         name: servicegroup-comp
@@ -87,7 +87,7 @@ components:
           state?: $parameters.svcg-advanced.svc-state
           healthmonitor?: $parameters.svcg-advanced.svc-enable-health-monitor
           comment?: $parameters.request-id + "|" +  $parameters.owner
-          netprofile: $components.netprofile.name
+          netprofile: $components.net-prof.properties.name
         components: 
           - 
             name: lbvserver-svg-binding
@@ -134,7 +134,7 @@ components:
            servername: $server.domain + "-server"
            servicetype: $parameters.svc-service-type
            port: $server.port
-           netprofile: $components.netprofile.name
+           netprofile: $components.net-prof.properties.name
         components:
            -
               name: lbvserver-service-binding

@@ -27,10 +27,10 @@ parameters:
     type: ipaddress
     required: true
   - 
-    name: SNIP
+    name: snip
     label: "SNIP"
     description: "SNIP used for backend connections"
-    type: ipaddress
+    type: string
     required: true
   - 
     name: lb-service-type
