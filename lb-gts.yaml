@@ -1,7 +1,7 @@
 --- 
 name: lb-gts
 namespace: com.citrix.adc.stylebooks
-version: "1.1"
+version: "1.0"
 display-name: "HTTP/SSL LoadBalancing StyleBook"
 description: "This stylebook defines a typical Load Balanced Application configuration."
 schema-version: "1.0"
@@ -20,7 +20,7 @@ import-stylebooks:
     version: "1.0"
 parameters-default-sources:
   - cmtypes::lbvserver-params-gts
-  - cmtypes::services-params-gts
+  - cmtypes::services-params-gts-1
 parameters: 
   - 
     name: certificates
@@ -29,17 +29,24 @@ parameters:
     type: "cmtypes::certificate[]"
 components: 
   - 
-    name: net-prof
+    name: snip-be
+    type: ns::nsip
+    properties:
+      ipaddress: $parameters.snip.snip-ipaddress
+      netmask: $parameters.snip.snip-netmask
+      type: snip      
+  - 
+    name: netprof-comp
     type: ns::netprofile
     properties: 
-      name: $parameters.lb-appname + "-netprof"
-      srcip: $parameters.snip
+      name: $parameters.lb-appname + "-" + $parameters.request-id + "-netprof"
+      srcip: str($components.snip-be.properties.ipaddress)
       srcippersistency: ENABLED
   - 
     name: lbvserver-comp
     type: ns::lbvserver
     properties: 
-      name: $parameters.lb-appname + "-lb"
+      name: $parameters.lb-appname + "-" + $parameters.request-id + "-lb"
       servicetype: $parameters.lb-service-type
       ipv46: $parameters.lb-virtual-ip
       port?: $parameters.lb-virtual-port
@@ -61,13 +68,13 @@ components:
       authn401?: $parameters.lb-advanced.auth-params.authentication-http-401
       appflowlog?: $parameters.lb-advanced.appflow-log
       comment?: $parameters.request-id + "|" +  $parameters.owner
-      netprofile: $components.net-prof.properties.name
+      netprofile: $components.netprof-comp.properties.name
     components: 
       - 
         name: servicegroup-comp
         type: ns::servicegroup
         properties: 
-          servicegroupname: $parameters.lb-appname + "-svcgrp"
+          servicegroupname: $parameters.lb-appname + "-" + $parameters.request-id + "-svcgrp"
           servicetype: $parameters.svc-service-type
           cip?: $parameters.svcg-advanced.svc-client-ip
           cipheader?: $parameters.svcg-advanced.svc-client-ip-header
@@ -87,7 +94,7 @@ components:
           state?: $parameters.svcg-advanced.svc-state
           healthmonitor?: $parameters.svcg-advanced.svc-enable-health-monitor
           comment?: $parameters.request-id + "|" +  $parameters.owner
-          netprofile: $components.net-prof.properties.name
+          netprofile: $components.netprof-comp.properties.name
         components: 
           - 
             name: lbvserver-svg-binding
@@ -102,7 +109,7 @@ components:
             repeat-item: server
             repeat-condition: $server.add-server
             properties:
-              name: str($server.ip)
+              name: $server.ad-server-name + "-server"
               ipaddress: $server.ip
           - 
             name: svg-ip-members
@@ -110,54 +117,44 @@ components:
             repeat: $parameters.svc-servers
             repeat-item: server
             properties: 
-              ip: $server.ip
+              servername: $server.ad-server-name + "-server"
               port: $server.port
               weight?: $server.weight
               servicegroupname: $parent.properties.servicegroupname
-      -  
-        name: server-members
-        type: ns::server
-        condition: $parameters.svc-server-domains
-        repeat: $parameters.svc-server-domains
-        repeat-item: server
-        properties: 
-          name: $server.domain + "-server"
-          domain: $server.domain
-      -
-        name: service-members
-        type: ns::service
-        condition: $parameters.svc-server-domains
-        repeat: $parameters.svc-server-domains
-        repeat-item: server
-        properties: 
-           name: $server.domain + "-service"
-           servername: $server.domain + "-server"
-           servicetype: $parameters.svc-service-type
-           port: $server.port
-           netprofile: $components.net-prof.properties.name
-        components:
-           -
-              name: lbvserver-service-binding
-              type: ns::lbvserver_service_binding
-              properties: 
-                 name: $parent.parent.properties.name
-                 servicename: $parent.properties.name
-      - 
-        name: vserver-certs-bindings
-        type: stlb::vserver-certs-binds
-        condition: "$parameters.certificates and ($parameters.lb-service-type == \"SSL\")"
-        properties: 
-          certificates: $parameters.certificates
-          vserver-name: $parent.properties.name
+          -  
+            name: server-members-fqdn
+            type: ns::server
+            condition: $parameters.svc-server-domains
+            repeat: $parameters.svc-server-domains
+            repeat-item: server
+            properties: 
+              name: $server.domain + "-server"
+              domain: $server.domain
+          - 
+            name: svg-fqdn-members
+            type: ns::servicegroup_servicegroupmember_binding
+            repeat: $parameters.svc-server-domains
+            repeat-item: server
+            properties: 
+              servername: $server.domain + "-server"
+              port: $server.port
+              weight?: $server.weight
+              servicegroupname: $parent.properties.servicegroupname
+          - 
+            name: vserver-certs-bindings
+            type: stlb::vserver-certs-binds
+            condition: "$parameters.certificates and ($parameters.lb-service-type == \"SSL\")"
+            properties: 
+              certificates: $parameters.certificates
+              vserver-name: $parent.properties.name
 outputs: 
   - 
     name: lbvserver
     value: $components.lbvserver-comp
   - 
+    name: netprofile
+    value: $components.netprof-comp
+  - 
     name: servicegroup
     condition:  $parameters.svc-servers
     value: $components.lbvserver-comp.components.servicegroup-comp
-  - 
-    name: service-members
-    condition: $parameters.svc-server-domains
-    value: $components.lbvserver-comp.components.service-members

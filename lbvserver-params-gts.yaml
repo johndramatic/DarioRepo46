@@ -13,7 +13,7 @@ import-stylebooks:
 parameters: 
   - 
     name: lb-appname
-    label: "Load Balanced Application Namen"
+    label: "Load Balanced Application Name"
     description: "Name of the Load Balanced application"
     type: string
     key: true
@@ -26,12 +26,29 @@ parameters:
     description: "Virtual IP address representing the Load Balanced application"
     type: ipaddress
     required: true
-  - 
+  -
     name: snip
-    label: "SNIP"
-    description: "SNIP used for backend connections"
-    type: string
-    required: true
+    label: SNIP
+    type: object  
+    required: true    
+    parameters:  
+      - 
+        name: snip-ipaddress
+        label: IP Address
+        description: "The SNIP address for Backend connections"
+        type: ipaddress
+        required: true
+        gui:
+          updatable: false
+      -
+        name: snip-netmask
+        label: Netmask
+        description: "SNIP Netmask"
+        type: string
+        required: true
+        gui:
+          updatable: false
+        default: 255.255.255.0
   - 
     name: lb-service-type
     label: "Load Balanced App Protocol"
@@ -61,6 +78,9 @@ parameters:
     label: "Request ID"
     description: "Service Now Request ID"
     type: string
+    pattern: "REQ.*"
+    gui:
+      updatable: false
     required: true
   - 
     name: owner
