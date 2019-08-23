@@ -48,7 +48,7 @@ parameters:
         required: true
         gui:
           updatable: false
-        default: 255.255.255.0
+        default: 255.255.254.0
   - 
     name: lb-service-type
     label: "Load Balanced App Protocol"
