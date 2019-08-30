@@ -19,7 +19,6 @@ parameters-default-sources:
     - stlb::lb-mon-gts
     - cmtypes::rewrite-config-params
     - cmtypes::responder-config-params
-    - cmtypes::ssl-config-params
 components:
   -
     name: lb-config-comp
