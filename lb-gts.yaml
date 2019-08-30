@@ -24,10 +24,23 @@ parameters-default-sources:
   - cmtypes::services-params-gts-1
 parameters: 
   - 
-    name: certificates
-    label: "SSL Certificate Settings"
-    description: "Certificates for this virtual server if this load Balanced application is exposed using SSL"
-    type: "cmtypes::certificate[]"
+    name: cert-sect
+    label: "Advanced Load Balancer Settings"
+    description: "Advanced load balancer settings"
+    type: object
+    gui: 
+      collapse_pane: true    
+    parameters:
+      - 
+        name: existing-certificate
+        label: "existing-certificate"
+        description: "existing-certificate"
+        type: string
+      - 
+        name: certificates
+        label: "SSL Certificate Settings"
+        description: "Certificates for this virtual server if this load Balanced application is exposed using SSL"
+        type: "cmtypes::certificate[]"
 components: 
   - 
     name: snip-be
@@ -144,7 +157,7 @@ components:
           - 
             name: vserver-certs-bindings
             type: stlb::vserver-certs-binds
-            condition: "$parameters.certificates and ($parameters.lb-service-type == \"SSL\")"
+            condition: "$parameters.cert-sect.certificates and ($parameters.lb-service-type == \"SSL\")"
             properties: 
               certificates: $parameters.certificates
               vserver-name: $parent.properties.name
