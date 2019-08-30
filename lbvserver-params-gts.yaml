@@ -65,6 +65,12 @@ parameters:
       - TCP
       - UDP
       - ANY
+      - DNS
+      - DNS_TCP
+      - FTP
+      - MSSQL
+      - MYSQL
+      - RADIUS
   - 
     name: lb-virtual-port
     label: "Load Balanced App Virtual Port"

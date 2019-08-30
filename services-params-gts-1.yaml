@@ -19,11 +19,17 @@ parameters:
     default: HTTP    
     allowed-values:
       - HTTP
-      - TCP
       - SSL
       - SSL_BRIDGE
+      - TCP
       - UDP
       - ANY
+      - DNS
+      - DNS_TCP
+      - FTP
+      - MSSQL
+      - MYSQL
+      - RADIUS
     required: true
   -
     name: svc-servers
