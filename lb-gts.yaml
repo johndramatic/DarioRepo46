@@ -168,7 +168,7 @@ components:
             condition: "$parameters.cert-sect.certificates and ($parameters.lb-service-type == \"SSL\")"
             properties: 
               certificates: $parameters.cert-sect.certificates
-              vserver-name: $parent.properties.name
+              vserver-name: $parent.parent.properties.name
 outputs: 
   - 
     name: lbvserver
