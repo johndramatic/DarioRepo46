@@ -70,13 +70,3 @@ components:
             name: $components.responder-config-comp.outputs.responder-policy-label
             type: POLICYLABEL
             bind-point: REQUEST
-  -
-    name: ssl-config-comp
-    type: stlb::ssl-config
-    condition: $parameters.ssl-config and $parameters.lb-service-type == SSL
-    properties-default-sources:
-      - $parameters
-    properties:
-        appname: $parameters.lb-appname
-        vserver-name: $components.lb-config-comp.outputs.lbvserver.properties.name
-        vserver-type: LBVSERVER
