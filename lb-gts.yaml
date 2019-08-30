@@ -155,14 +155,6 @@ components:
               weight?: $server.weight
               servicegroupname: $parent.properties.servicegroupname
           - 
-            name: existing-cert-bindings-comp
-            type: ns::sslvserver_sslcertkey_binding 
-            description: "This component binds and existing certkey entities to a vserver."
-            condition: "$parameters.cert-sect.existing-certificate-name and ($parameters.lb-service-type == \"SSL\")"
-            properties: 
-              vservername: $parent.properties.name
-              certkeyname: $parameters.cert-sect.existing-certificate-name
-          - 
             name: vserver-certs-bindings
             type: stlb::vserver-certs-binds
             condition: "$parameters.cert-sect.certificates and ($parameters.lb-service-type == \"SSL\")"
