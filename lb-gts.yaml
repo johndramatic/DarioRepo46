@@ -159,7 +159,7 @@ components:
             type: stlb::vserver-certs-binds
             condition: "$parameters.cert-sect.certificates and ($parameters.lb-service-type == \"SSL\")"
             properties: 
-              certificates: $parameters.certificates
+              certificates: $parameters.cert-sect.certificates
               vserver-name: $parent.properties.name
 outputs: 
   - 
