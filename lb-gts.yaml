@@ -32,7 +32,7 @@ parameters:
       collapse_pane: true    
     parameters:
       - 
-        name: existing-certificate
+        name: existing-certificate-name
         label: "existing-certificate"
         description: "Name of the existing certificate to be used. Exact match required"
         type: string
@@ -154,6 +154,13 @@ components:
               port: $server.port
               weight?: $server.weight
               servicegroupname: $parent.properties.servicegroupname
+          - 
+            name: existing-cert-bindings-comp
+            type: ns::sslvserver_sslcertkey_binding 
+            description: "This component binds and existing certkey entities to a vserver."
+            properties: 
+              vservername: $parent.properties.name
+              certkeyname: $parameters.cert-sect.existing-certificate-name
           - 
             name: vserver-certs-bindings
             type: stlb::vserver-certs-binds
