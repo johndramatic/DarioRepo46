@@ -160,7 +160,7 @@ components:
             description: "This component binds and existing certkey entities to a vserver."
             condition: "$parameters.cert-sect.existing-certificate-name and ($parameters.lb-service-type == \"SSL\")"
             properties: 
-              vservername: $parent.properties.name
+              vservername: $parent.parent.properties.name
               certkeyname: $parameters.cert-sect.existing-certificate-name
           - 
             name: vserver-certs-bindings
