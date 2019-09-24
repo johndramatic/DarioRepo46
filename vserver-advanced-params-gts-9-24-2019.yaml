@@ -8,7 +8,7 @@ schema-version: "1.0"
 parameters:      
       -
         name: cookiename
-        lable: "Cookie name to be use with cookie insert persistance"
+        label: "Cookie name to be use with cookie insert persistance"
         description: "Use this parameter to specify the cookie name for COOKIE peristence type. It specifies the name of cookie with a maximum of 32 characters. If not specified, cookie name is internally generated."
         type: string
       - 
