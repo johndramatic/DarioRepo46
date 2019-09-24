@@ -14,13 +14,15 @@ parameters:
       - 
         name: client-timeout
         label: "Load Balanced App Client Timeout"
-        description: "Client connection timeout after inactivity in seconds"
+        description: "Client connection timeout after inactivity in seconds. Idle time, in seconds, after which a client connection is terminated."
         type: number
+        default: 180
       - 
         name: insert-vserver-ipport
         label: "Load Balanced App HTTP header"
         description: "Insert an HTTP header, whose value is the IP address and port number of the virtual server, before forwarding a request to the server."
         type: string
+        default: "OFF"
         allowed-values: 
           - "OFF"
           - VIPADDR        
@@ -45,11 +47,6 @@ parameters:
         label: "Load Balanced App Threshold"
         description: "Value of the thershold, when exceeded, triggers spillover."
         type: number       
-      - 
-        name: comment
-        label: "Load Balanced App Comment"
-        description: "Any comments that you might want to associate with the virtual server."
-        type: string
       -
         name: http-profile
         label: "Name of HTTP Profile"

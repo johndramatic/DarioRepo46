@@ -115,6 +115,10 @@ parameters:
         label: "Service Group Sure Connect"
         description: "State of the SureConnect feature for the service group."
         type: string
+        default: "OFF"
+        allowed-values: 
+          - "OFF"
+          - "ON"
       - 
         name: svc-surge-protection
         label: "Service Group Surge Protection"
@@ -128,12 +132,14 @@ parameters:
         name: svc-client-timeout
         label: "Service Group Client Timeout"
         description: "Time, in seconds, after which to terminate an idle client connection."
-        type: number        
+        type: number     
+        default: 1800
       - 
         name: svc-server-timeout
         label: "Service Group Server Timeout"
         description: "Time, in seconds, after which to terminate an idle server connection."
         type: number
+        default: 1800
       - 
         name: svc-client-keepalive
         label: "Service Group Client Keep-Alive"
@@ -184,6 +190,7 @@ parameters:
         label: "Service Group Customer Server ID"
         description: "The identifier for this IP:Port pair. Used when the persistency type is set to Custom Server ID."
         type: string
+        default: NONE
       - 
         name: svc-enable-health-monitor
         label: "Enable Service Group Monitoring"
@@ -193,8 +200,4 @@ parameters:
         allowed-values:
           - "YES"
           - "NO"
-      - 
-        name: svc-comment
-        label: "Service Group Comment"
-        description: "Any information about the service group."
-        type: string
+
