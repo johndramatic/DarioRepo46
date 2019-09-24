@@ -70,7 +70,7 @@ components:
       backuppersistencetimeout?: $parameters.lb-advanced.backup-persistence-timeout
       cookiename?: $parameters.lb-advanced.cookiename
       clttimeout?: $parameters.lb-advanced.client-timeout
-      timeout?: $parameters.lb-advanced.timeout
+      timeout?: $parameters.timeout
       insertvserveripport?: $parameters.lb-advanced.insert-vserver-ipport
       redirurl?: $parameters.lb-advanced.redirect-url
       somethod?: $parameters.lb-advanced.spillover-method
