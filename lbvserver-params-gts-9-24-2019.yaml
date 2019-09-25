@@ -133,7 +133,7 @@ parameters:
     allowed-values: 
       - NONE
       - SOURCEIP
-   - 
+  - 
     name: backup-persistence-timeout
     label: "Load Balanced App Backup Persistence Timeout"
     description: "Time period for which backup persistence is in effect."
