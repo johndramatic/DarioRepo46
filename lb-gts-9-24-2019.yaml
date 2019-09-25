@@ -66,7 +66,7 @@ components:
       port?: $parameters.lb-virtual-port
       lbmethod?: $parameters.algorithm
       persistencetype?: $parameters.persistence
-      persistencebackup?: $parameters.persistence
+      persistencebackup?: $parameters.persistence-backup
       backuppersistencetimeout?: $parameters.backup-persistence-timeout
       cookiename?: $parameters.lb-advanced.cookiename
       clttimeout?: $parameters.lb-advanced.client-timeout

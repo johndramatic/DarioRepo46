@@ -106,21 +106,6 @@ parameters:
       - LEASTRESPONSETIME
       - SOURCEIPHASH
   - 
-    name: persistence-backup
-    label: "Load Balanced App Backup Persistence"
-    description: "Backup persistence type for the virtual server."
-    type: string
-    default: NONE
-    allowed-values: 
-      - NONE
-      - SOURCEIP
-  - 
-    name: backup-persistence-timeout
-    label: "Load Balanced App Backup Persistence Timeout"
-    description: "Time period for which backup persistence is in effect."
-    type: number
-    default: 2
-  - 
     name: persistence
     label: "Load Balanced App Persistence Type"
     description: "Persistence type used for members of this pool"
@@ -137,6 +122,21 @@ parameters:
     name: timeout
     label: "Load Balanced App Persistence Timeout"
     description: "Time period for which a persistence session is in effect."
+    type: number
+    default: 2
+  - 
+    name: persistence-backup
+    label: "Load Balanced App Backup Persistence"
+    description: "Backup persistence type for the virtual server."
+    type: string
+    default: NONE
+    allowed-values: 
+      - NONE
+      - SOURCEIP
+  - 
+    name: backup-persistence-timeout
+    label: "Load Balanced App Backup Persistence Timeout"
+    description: "Time period for which backup persistence is in effect."
     type: number
     default: 2
   - 
