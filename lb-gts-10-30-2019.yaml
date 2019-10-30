@@ -53,7 +53,7 @@ components:
     name: netprof-comp
     type: ns::netprofile
     properties: 
-      name: $parameters.lb-appname + "-" + $parameters.request-id + "-netprof"
+      name: $parameters.lb-appname + "-" + $parameters.request-id + "-" + $parameters.owner + "-netprof"
       srcip: str($components.snip-be.properties.ipaddress)
       srcippersistency: ENABLED
   - 
@@ -89,7 +89,7 @@ components:
         name: servicegroup-comp
         type: ns::servicegroup
         properties: 
-          servicegroupname: $parameters.lb-appname + "-" + $parameters.request-id + "-svcgrp"
+          servicegroupname: $parameters.lb-appname + "-" + $parameters.request-id + "-" + $parameters.owner + "-svcgrp"
           servicetype: $parameters.svc-service-type
           cip?: $parameters.svcg-advanced.svc-client-ip
           cipheader?: $parameters.svcg-advanced.svc-client-ip-header
