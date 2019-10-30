@@ -1,4 +1,5 @@
-name: lb-mon-full-gts-9-24-2019
+--- 
+name: lb-mon-full-gts-10-30-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: Load Balancing StyleBook with L7 Features
@@ -16,13 +17,13 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters-default-sources:
-    - stlb::lb-mon-gts-9-24-2019
+    - stlb::lb-mon-gts-10-30-2019
     - cmtypes::rewrite-config-params
     - cmtypes::responder-config-params
 components:
   -
     name: lb-config-comp
-    type: stlb::lb-mon-gts-9-24-2019
+    type: stlb::lb-mon-gts-10-30-2019
     properties-default-sources:
       - $parameters
   -

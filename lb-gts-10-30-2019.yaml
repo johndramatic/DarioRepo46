@@ -1,5 +1,5 @@
 --- 
-name: lb-gts-9-24-2019
+name: lb-gts-10-30-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "HTTP/SSL LoadBalancing StyleBook"
@@ -20,8 +20,8 @@ import-stylebooks:
     prefix: stlb
     version: "1.0"
 parameters-default-sources:
-  - cmtypes::lbvserver-params-gts-9-24-2019
-  - cmtypes::services-params-gts-9-24-2019
+  - cmtypes::lbvserver-params-gts-10-30-2019
+  - cmtypes::services-params-gts-10-30-2019
 parameters: 
   - 
     name: cert-sect
@@ -60,7 +60,7 @@ components:
     name: lbvserver-comp
     type: ns::lbvserver
     properties: 
-      name: $parameters.lb-appname + "-" + $parameters.request-id + "-lb"
+      name: $parameters.lb-appname + "-" + $parameters.request-id + $parameters.owner + "-lb"
       servicetype: $parameters.lb-service-type
       ipv46: $parameters.lb-virtual-ip
       port?: $parameters.lb-virtual-port
