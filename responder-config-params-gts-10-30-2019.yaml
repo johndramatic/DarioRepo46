@@ -1,0 +1,29 @@
+name: responder-config-params-gts-10-30-2019
+namespace: com.citrix.adc.commontypes
+version: "1.0"
+display-name: Responder Configuration
+private: true
+schema-version: "1.0"
+import-stylebooks: 
+  - 
+    namespace: com.citrix.adc.commontypes
+    version: "1.0"
+    prefix: cmtypes
+parameters:
+    -
+        name: responder-config
+        label: Responder Configs Section
+        type: object
+        gui: 
+            collapse_pane: true  
+        parameters:
+            -
+                name: redirect-url
+                type: cmtypes::redirect-url-params
+                label: Configure URL Redirection
+                description: The URL to which incoming requests are redirected
+            -
+                name: redirect-to-https
+                type: boolean
+                label: Redirect to HTTPS
+                description: Redirect all requests from HTTP to the equivalent HTTPS URL
