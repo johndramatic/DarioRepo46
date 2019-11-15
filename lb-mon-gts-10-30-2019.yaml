@@ -51,7 +51,7 @@ parameters:
             description: "List of Monitors to monitor Application Servers"
             type: cmtypes::monitor[]
 substitutions:
-  mon-name(appname, monname): $appname + "-" + $parameters.request-id + "-mon-" + $monname
+  mon-name(appname, monname): $appname + + "-mon-" + $monname
 components: 
   - 
     name: lb-comp
@@ -83,7 +83,7 @@ components:
     properties-default-sources:
       - $mon
     properties:
-        monitorname: $substitutions.mon-name($parameters.lb-appname, $mon.monitorname)
+        monitorname: $substitutions.mon-name($parameters.appname, $mon.monitorname)
         netprofile: $components.lb-comp.outputs.netprofile.properties.name
     components:
       -

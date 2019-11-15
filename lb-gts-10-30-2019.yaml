@@ -53,14 +53,14 @@ components:
     name: netprof-comp
     type: ns::netprofile
     properties: 
-      name: $parameters.lb-appname + "-" + $parameters.owner + "-netprof"
+      name: $parameters.appname + "-netprof"
       srcip: str($components.snip-be.properties.ipaddress)
       srcippersistency: ENABLED
   - 
     name: lbvserver-comp
     type: ns::lbvserver
     properties: 
-      name: $parameters.lb-appname + "-" + $parameters.owner + "-lb"
+      name: $parameters.appname + "-lb"
       servicetype: $parameters.lb-service-type
       ipv46: $parameters.lb-virtual-ip
       port?: $parameters.lb-virtual-port
@@ -89,7 +89,7 @@ components:
         name: servicegroup-comp
         type: ns::servicegroup
         properties: 
-          servicegroupname: $parameters.lb-appname + "-" + $parameters.owner + "-svcgrp"
+          servicegroupname: $parameters.appname + "-svcgrp"
           servicetype: $parameters.svc-service-type
           cip?: $parameters.svcg-advanced.svc-client-ip
           cipheader?: $parameters.svcg-advanced.svc-client-ip-header

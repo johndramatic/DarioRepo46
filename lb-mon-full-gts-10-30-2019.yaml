@@ -26,6 +26,8 @@ components:
     type: stlb::lb-mon-gts-10-30-2019
     properties-default-sources:
       - $parameters
+    properties:
+      appname: $parameters.appname + "-" + $parameters.owner
   -
     name: rewrite-config-comp
     type: stlb::rewrite-config
@@ -33,7 +35,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.lb-appname
+      appname: $parameters.appname + "-" + $parameters.owner
   -
     name: rewrite-policies-bindings-comp
     type: stlb::vserver-rewritepolicies-bindings
@@ -57,7 +59,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.lb-appname
+      appname: $parameters.appname + "-" + $parameters.owner
   -
     name: responder-policies-bindings-comp
     type: stlb::vserver-responderpolicies-bindings
