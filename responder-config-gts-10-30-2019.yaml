@@ -44,7 +44,7 @@ parameters:
     default: HTTP    
 
 parameters-default-sources:
-    - cmtypes::responder-config-params-gts-10-30-2019
+    - cmtypes::responder-config-params
 components:
     # -
     #   name: responder-enable-feature-comp
@@ -80,7 +80,7 @@ components:
     -
         name: redirect-to-https-lb-comp
         type: ns::lbvserver
-        condition: $parameters.lb-virtual-ip and $parameters.responder-config and $parameters.responder-config.redirect-to-https and $parameters.lb-service-type == "SSL"
+        condition: $parameters.lb-virtual-ip and $parameters.responder-config and $parameters.responder-config.redirect-to-https.pattern == "true" and $parameters.lb-service-type == "SSL"
         properties:
             name: $parameters.appname + "-lb"
             servicetype: upper($parameters.lb-service-type)
