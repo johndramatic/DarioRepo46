@@ -24,6 +24,6 @@ parameters:
                 description: The URL to which incoming requests are redirected
             -
                 name: redirect-to-https
-                type: cmtypes::redirect-to-https-params
+                type: boolean
                 label: Redirect to HTTPS
-                description: Redirect all requests that fit a pattern to an equivalent HTTPS URL
+                description: Redirect all HTTP requests to an equivalent HTTPS URL
