@@ -28,6 +28,7 @@ components:
       - $parameters
     properties:
       appname: $parameters.appname + "-" + $parameters.owner
+      redirectFromPort: 80
   -
     name: rewrite-config-comp
     type: stlb::rewrite-config
