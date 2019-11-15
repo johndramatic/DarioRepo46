@@ -44,7 +44,7 @@ parameters:
     default: HTTP    
 
 parameters-default-sources:
-    - cmtypes::responder-config-params
+    - cmtypes::responder-config-params-gts-10-30-2019
 components:
     # -
     #   name: responder-enable-feature-comp
