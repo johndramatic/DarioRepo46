@@ -19,7 +19,7 @@ import-stylebooks:
 parameters-default-sources:
     - stlb::lb-mon-gts-10-30-2019
     - cmtypes::rewrite-config-params
-    - cmtypes::responder-config-params-gts-10-30-2019
+    - cmtypes::responder-config-params
 components:
   -
     name: lb-config-comp
@@ -55,7 +55,7 @@ components:
   -
     name: responder-config-comp
     type: stlb::responder-config-gts-10-30-2019
-    condition: $parameters.responder-config-gts-10-30-2019
+    condition: $parameters.responder-config
     properties-default-sources:
       - $parameters
     properties:
@@ -63,7 +63,7 @@ components:
   -
     name: responder-policies-bindings-comp
     type: stlb::vserver-responderpolicies-bindings
-    condition: $parameters.responder-config-gts-10-30-2019
+    condition: $parameters.responder-config
     properties:
         vserver-name: $components.lb-config-comp.outputs.lbvserver.properties.name
         vserver-type: LBVSERVER
