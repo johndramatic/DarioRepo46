@@ -49,7 +49,7 @@ parameters:
             name: monitors
             label: "List of Monitors"
             description: "List of Monitors to monitor Application Servers"
-            type: cmtypes::monitor[]
+            type: cmtypes::monitor-gts-10-30-2019[]
 substitutions:
   mon-name(appname, monname): $appname + "-mon-" + $monname
 components: 
