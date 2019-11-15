@@ -9,7 +9,7 @@ schema-version: "1.0"
 import-stylebooks: 
   - 
     namespace: netscaler.nitro.config
-    version: "10.5"
+    version: "11.1"
     prefix: ns
 parameters: 
     - 
