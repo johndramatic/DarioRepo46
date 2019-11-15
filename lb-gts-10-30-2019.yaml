@@ -72,7 +72,7 @@ components:
       clttimeout?: $parameters.lb-advanced.client-timeout
       timeout?: $parameters.timeout
       insertvserveripport?: $parameters.lb-advanced.insert-vserver-ipport
-      redirectFromPort?:  80
+      redirectFromPort?: 80
       redirurl?: $parameters.lb-advanced.redirect-url
       somethod?: $parameters.lb-advanced.spillover-method
       sothreshold?: $parameters.lb-advanced.spillover-threshold
