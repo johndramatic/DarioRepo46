@@ -54,7 +54,7 @@ components:
             bind-point: RESPONSE
   -
     name: responder-config-comp
-    type: stlb::responder-config
+    type: stlb::responder-config-gts-10-30-2019
     condition: $parameters.responder-config
     properties-default-sources:
       - $parameters
