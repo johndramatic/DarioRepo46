@@ -67,7 +67,7 @@ components:
         repeat-item: res
         repeat-index: res-index
         properties:
-            appname: $parameters.appname + "-responder-"+ str($res-index)
+            appname: $parameters.appname + "-responder-" + str($res-index)
             redirect-url: $res
         components:
           -
