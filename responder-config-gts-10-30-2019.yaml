@@ -67,7 +67,7 @@ components:
         repeat-item: res
         properties:
             appname: $parameters.appname
-            redirect-url: $res.redirect-url
+            redirect-url: $res
         components:
           -
             name: responderpolicy-responderpolicylabel-binding-comp
