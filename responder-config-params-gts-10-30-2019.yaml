@@ -18,12 +18,12 @@ parameters:
             collapse_pane: true  
         parameters:
             -
-                name: redirect-to-https
-                type: boolean
-                label: Redirect to HTTPS
-                description: Redirect all HTTP requests to an equivalent HTTPS URL
-            -
                 name: redirect-url
                 type: cmtypes::redirect-url-params
                 label: Configure URL Redirection
                 description: The URL to which incoming requests are redirected
+            -
+                name: redirect-to-https
+                type: boolean
+                label: Redirect to HTTPS
+                description: Redirect all HTTP requests to an equivalent HTTPS URL
