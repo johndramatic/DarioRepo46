@@ -25,9 +25,7 @@ parameters:
     name: responder-config-section
     label: Responder Configs Section
     required: true 
-    type: object
-    gui: 
-        collapse_pane: true  
+    type: object 
     parameters:
       -
         name: redirect-to-https
