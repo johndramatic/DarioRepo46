@@ -19,7 +19,7 @@ import-stylebooks:
 parameters-default-sources:
     - stlb::lb-mon-gts-10-30-2019
     - cmtypes::rewrite-config-params
-    - cmtypes::responder-config-params-gts-10-30-2019
+    - cmtypes::responder-config-gts-10-30-2019
 components:
   -
     name: lb-config-comp
