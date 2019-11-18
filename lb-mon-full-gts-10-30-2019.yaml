@@ -19,7 +19,22 @@ import-stylebooks:
 parameters-default-sources:
     - stlb::lb-mon-gts-10-30-2019
     - cmtypes::rewrite-config-params
-    - cmtypes::responder-config-params-gts-10-30-2019[]
+    - cmtypes::responder-config-params-gts-10-30-2019
+parameters:
+  -
+    name: responder-config-section
+    label: Responder Configs Section
+    required: true 
+    type: object
+    gui: 
+        collapse_pane: true  
+    parameters:
+      -
+        name: redirect-to-https
+        type: boolean
+        label: Redirect to HTTPS
+        description: Redirect all HTTP requests to an equivalent HTTPS URL
+        required: true
 components:
   -
     name: lb-config-comp
