@@ -57,7 +57,7 @@ parameters:
         required: true
       -
         name: redirect-url
-        type: cmtypes::redirect-url-params[]
+        type: cmtypes::redirect-url-params
         label: Configure URL Redirection
         description: The URL to which incoming requests are redirected
 components:
