@@ -18,31 +18,7 @@ import-stylebooks:
     namespace: com.citrix.adc.commontypes
     version: "1.0"
     prefix: cmtypes
-parameters:
-  -
-    name: appname
-    label: SharePoint Application Name
-    description: The Name of this Sharepoint Application
-    type: string
-    required: true
-  - 
-    name: lb-virtual-ip
-    label: "Load Balanced App Virtual IP address"
-    description: "Virtual IP address representing the Load Balanced application"
-    type: ipaddress
-  - 
-    name: lb-virtual-port
-    label: "Load Balanced App Virtual Port"
-    description: "TCP port representing the Load Balanced application"
-    type: tcp-port
-    default: 80
-  - 
-    name: lb-service-type
-    label: "Load Balanced App Protocol"
-    description: "Protocol used for the Load Balanced application."
-    type: string
-    default: HTTP    
-
+parameters:  
   -
     name: responder-config
     label: Responder Configs Section
