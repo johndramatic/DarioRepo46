@@ -20,31 +20,16 @@ import-stylebooks:
     prefix: cmtypes
 parameters:
   -
-    name: appname
-    label: SharePoint Application Name
-    description: The Name of this Sharepoint Application
-    type: string
+    name: redirect-to-https
+    type: boolean
+    label: Redirect to HTTPS
+    description: Redirect all HTTP requests to an equivalent HTTPS URL
     required: true
-  - 
-    name: lb-virtual-ip
-    label: "Load Balanced App Virtual IP address"
-    description: "Virtual IP address representing the Load Balanced application"
-    type: ipaddress
-  - 
-    name: lb-virtual-port
-    label: "Load Balanced App Virtual Port"
-    description: "TCP port representing the Load Balanced application"
-    type: tcp-port
-    default: 80
-  - 
-    name: lb-service-type
-    label: "Load Balanced App Protocol"
-    description: "Protocol used for the Load Balanced application."
-    type: string
-    default: HTTP    
-
-parameters-default-sources:
-    - cmtypes::responder-config-params-gts-10-30-2019
+  -
+    name: redirect-url
+    type: cmtypes::redirect-url-params[]
+    label: Configure URL Redirection
+    description: The URL to which incoming requests are redirected
 components:
     # -
     #   name: responder-enable-feature-comp
