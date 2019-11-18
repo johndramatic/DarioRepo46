@@ -78,7 +78,7 @@ components:
               labelname: $components.responder-policy-label-comp.properties.labelname
               policyname: $parent.outputs.redirect-url-policy.properties.name
               gotopriorityexpression: END
-              priority: 10 + $res-index
+              priority: $res-index*10
     -
         name: redirect-to-https-lb-comp
         type: ns::lbvserver
