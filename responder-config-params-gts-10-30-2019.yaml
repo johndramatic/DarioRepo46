@@ -24,7 +24,7 @@ parameters:
                 description: Redirect all HTTP requests to an equivalent HTTPS URL
                 required: true
             -
-                name: redirect-url
+                name: redirect-urls
                 type: cmtypes::redirect-url-params[]
                 label: Configure URL Redirection
                 description: The URL to which incoming requests are redirected
