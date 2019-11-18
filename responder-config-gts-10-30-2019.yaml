@@ -65,8 +65,9 @@ components:
         condition: $parameters.responder-config.redirect-urls
         repeat: $parameters.responder-config.redirect-urls
         repeat-item: res
+        repeat-index: res-index
         properties:
-            appname: $parameters.appname + str($res.target-expr)
+            appname: $parameters.appname + "-responder-"+ str($res.index)
             redirect-url: $res
         components:
           -
