@@ -22,6 +22,7 @@ parameters:
                 type: boolean
                 label: Redirect to HTTPS
                 description: Redirect all HTTP requests to an equivalent HTTPS URL
+                required: true
             -
                 name: redirect-url
                 type: cmtypes::redirect-url-params

@@ -63,6 +63,11 @@ components:
         name: redirect-comp
         type: stlb::redirect-url
         condition: $parameters.responder-config.redirect-url
+        repeat: $parameters.responder-config.redirect-url
+        repeat-item: res
+        repeat-index: ndx1
+        properties-default-sources:
+          - $res
         properties:
             appname: $parameters.appname
             redirect-url: $parameters.responder-config.redirect-url
