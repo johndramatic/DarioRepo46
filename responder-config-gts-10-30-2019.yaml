@@ -67,7 +67,7 @@ components:
         repeat-item: res
         repeat-index: res-index
         properties:
-            appname: $parameters.appname + "-responder-" + str($res-index)
+            appname: $parameters.appname + "-id-" + str($res-index)
             redirect-url: $res
         components:
           -
@@ -78,7 +78,7 @@ components:
               labelname: $components.responder-policy-label-comp.properties.labelname
               policyname: $parent.outputs.redirect-url-policy.properties.name
               gotopriorityexpression: END
-              priority: $res-index*10
+              priority: 10 + (10 * $res-index)
     -
         name: redirect-to-https-lb-comp
         type: ns::lbvserver
