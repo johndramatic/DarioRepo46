@@ -155,9 +155,11 @@ components:
     name: replace-path-comp
     type: stlb::replace-path
     condition: $parameters.rewrite-config.replace-path
+    repeat-item: rew
+    repeat-index: rew-indx
     properties:
-        appname: $parameters.appname
-        path: $parameters.rewrite-config.replace-path
+        appname: $parameters.appname + "-id-" + str($res-index)
+        path: $rew
     components:
       -
         name: rewritepolicy-request-rewritepolicylabel-binding-comp

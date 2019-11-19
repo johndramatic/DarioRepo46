@@ -19,9 +19,10 @@ parameters:
         parameters:
             -
                 name: replace-path
-                type: cmtypes::replace-path-params
+                type: cmtypes::replace-path-params[]
                 label: URL Path to replace
                 description: Use this to replace the URL Path component in an HTTP request
+                default: []
                 gui: 
                     collapse_pane: true  
             -
