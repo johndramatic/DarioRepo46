@@ -38,16 +38,12 @@ parameters:
         description: "The SNIP address for Backend connections"
         type: ipaddress
         required: true
-        gui:
-          updatable: false
       -
         name: snip-netmask
         label: Netmask
         description: "SNIP Netmask"
         type: string
         required: true
-        gui:
-          updatable: false
         default: 255.255.254.0
   - 
     name: lb-service-type
