@@ -1,5 +1,5 @@
 --- 
-name: lb-gts-10-30-2019
+name: lb-gts-11-19-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "HTTP/SSL LoadBalancing StyleBook"
@@ -20,8 +20,8 @@ import-stylebooks:
     prefix: stlb
     version: "1.0"
 parameters-default-sources:
-  - cmtypes::lbvserver-params-gts-10-30-2019
-  - cmtypes::services-params-gts-10-30-2019
+  - cmtypes::lbvserver-params-gts-11-19-2019
+  - cmtypes::services-params-gts-11-19-2019
 parameters: 
   - 
     name: cert-sect

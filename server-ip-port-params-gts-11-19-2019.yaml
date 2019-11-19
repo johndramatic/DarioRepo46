@@ -1,5 +1,5 @@
 --- 
-name: server-ip-port-params-gts-10-30-2019
+name: server-ip-port-params-gts-11-19-2019
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines a typical server ip port information."

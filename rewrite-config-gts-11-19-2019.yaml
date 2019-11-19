@@ -1,4 +1,4 @@
-name: rewrite-config-gts-10-30-2019
+name: rewrite-config-gts-11-19-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: Rewrite Config StyleBook
@@ -25,7 +25,7 @@ parameters:
         type: string
         required: true
 parameters-default-sources:
-    - cmtypes::rewrite-config-params-gts-10-30-2019
+    - cmtypes::rewrite-config-params-gts-11-19-2019
 substitutions:
     bindpoint:
         false: REQUEST

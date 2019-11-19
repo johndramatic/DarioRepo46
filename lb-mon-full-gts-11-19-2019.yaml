@@ -1,5 +1,5 @@
 --- 
-name: lb-mon-full-gts-10-30-2019
+name: lb-mon-full-gts-11-19-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: Load Balancing StyleBook with L7 Features
@@ -17,20 +17,20 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters-default-sources:
-    - stlb::lb-mon-gts-10-30-2019
-    - cmtypes::rewrite-config-params-gts-10-30-2019
-    - cmtypes::responder-config-params-gts-10-30-2019
+    - stlb::lb-mon-gts-11-19-2019
+    - cmtypes::rewrite-config-params-gts-11-19-2019
+    - cmtypes::responder-config-params-gts-11-19-2019
 components:
   -
     name: lb-config-comp
-    type: stlb::lb-mon-gts-10-30-2019
+    type: stlb::lb-mon-gts-11-19-2019
     properties-default-sources:
       - $parameters
     properties:
       appname: $parameters.appname + "-" + $parameters.owner
   -
     name: rewrite-config-comp
-    type: stlb::rewrite-config-gts-10-30-2019
+    type: stlb::rewrite-config-gts-11-19-2019
     condition: $parameters.rewrite-config
     properties-default-sources:
       - $parameters
@@ -54,7 +54,7 @@ components:
             bind-point: RESPONSE
   -
     name: responder-config-comp
-    type: stlb::responder-config-gts-10-30-2019
+    type: stlb::responder-config-gts-11-19-2019
     condition: $parameters.responder-config
     properties-default-sources:
       - $parameters
