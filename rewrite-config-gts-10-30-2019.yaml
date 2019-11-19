@@ -156,11 +156,11 @@ components:
     type: stlb::replace-path
     condition: $parameters.rewrite-config.replace-path
     repeat: $parameters.rewrite-config.replace-path
-    repeat-item: rewrite-path
-    repeat-index: rewrite-path-indx
+    repeat-item: rew
+    repeat-index: rew-index
     properties:
-        appname: $parameters.appname + "-id-" + str($rewrite-path-index)
-        path: $rewrite-path
+        appname: $parameters.appname + "-id-" + str($rew-path-index)
+        path: $rew
     components:
       -
         name: rewritepolicy-request-rewritepolicylabel-binding-comp
