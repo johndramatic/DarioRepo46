@@ -16,7 +16,9 @@ parameters:
     label: "Application Server Protocol"
     description: "Protocol of the application server."
     type: string
-    default: HTTP    
+    default: HTTP   
+    gui:
+        updatable: false
     allowed-values:
       - HTTP
       - SSL
