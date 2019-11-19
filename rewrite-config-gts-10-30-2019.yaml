@@ -159,7 +159,7 @@ components:
     repeat-item: rew
     repeat-index: rew-index
     properties:
-        appname: $parameters.appname + "-id-" + str($rew-path-index)
+        appname: $parameters.appname + "-id-" + str($rew-index)
         path: $rew
     components:
       -
