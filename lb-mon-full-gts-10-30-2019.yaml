@@ -18,7 +18,7 @@ import-stylebooks:
     version: "1.0"
 parameters-default-sources:
     - stlb::lb-mon-gts-10-30-2019
-    - cmtypes::rewrite-config-params
+    - cmtypes::rewrite-config-params-gts-10-30-2019
     - cmtypes::responder-config-params-gts-10-30-2019
 components:
   -
