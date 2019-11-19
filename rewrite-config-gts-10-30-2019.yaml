@@ -170,7 +170,7 @@ components:
             labelname: $components.rewrite-request-policy-label-comp.properties.labelname
             policyname: $parent.outputs.replace-path-policy.properties.name
             gotopriorityexpression: END
-            priority: 10 + $substitutions.replace_path_index * 5
+            priority: 10 + (10 * $rew-index) + $substitutions.replace_path_index * 5
   -
     name: replace-content-comp
     type: stlb::replace-content
