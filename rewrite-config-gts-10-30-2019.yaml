@@ -155,6 +155,7 @@ components:
     name: replace-path-comp
     type: stlb::replace-path
     condition: $parameters.rewrite-config.replace-path
+    repeat: $parameters.rewrite-config.replace-path
     repeat-item: rewrite-path
     repeat-index: rewrite-path-indx
     properties:
