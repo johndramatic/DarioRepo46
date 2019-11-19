@@ -30,7 +30,7 @@ components:
       appname: $parameters.appname + "-" + $parameters.owner
   -
     name: rewrite-config-comp
-    type: stlb::rewrite-config
+    type: stlb::rewrite-config-gts-10-30-2019
     condition: $parameters.rewrite-config
     properties-default-sources:
       - $parameters
