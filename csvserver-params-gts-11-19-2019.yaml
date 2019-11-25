@@ -26,6 +26,7 @@ parameters:
     description: "Virtual IP address representing the Content Switched application"
     type: ipaddress
     required: true
+    default: 0.0.0.0
   - 
     name: cs-virtual-port
     label: "Content Switched App Virtual Port"
@@ -33,14 +34,14 @@ parameters:
     type: tcp-port
     gui:
       updatable: false
-    default: 80
+    default: *
     required: true
   - 
     name: cs-service-type
     label: "Content Switched App Protocol"
     description: "Protocol used for the Content Switched application."
     type: string
-    default: HTTP    
+    default: SSL    
     required: true
     gui:
       updatable: false
