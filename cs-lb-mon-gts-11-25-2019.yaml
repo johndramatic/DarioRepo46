@@ -78,7 +78,7 @@ components:
         description: "This component is used to create and bind CS Policy to the CS vserver"
         properties: 
           csvserver-name: $parent.properties.name
-          lbvserver-name: $components.default-lb-mon-comp.outputs.lb-config-comp.properties.name
+          lbvserver-name: $components.default-lb-mon-comp.outputs.lbvserver.properties.name
           is-default: true
       - 
         name: lb-mon-comps
