@@ -90,7 +90,7 @@ components:
         properties-default-sources:
           - $pool.lb-pool
         properties: 
-          appname: $parameters.appname + "-" + $pool.lb-pool.lb-appname
+          appname: $parameters.appname + "-" + $pool.lb-pool.appname
         components:
           - 
             name: cs-lb-bind-comp
