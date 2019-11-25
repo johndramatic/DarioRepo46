@@ -19,8 +19,6 @@ parameters-default-sources:
     - stlb::cs-lb-mon
     - cmtypes::rewrite-config-params
     - cmtypes::responder-config-params
-    - cmtypes::compression-config-params
-    - cmtypes::ssl-config-params
 components:
   -
     name: cs-config-comp
@@ -67,34 +65,3 @@ components:
             name: $components.responder-config-comp.outputs.responder-policy-label
             type: POLICYLABEL
             bind-point: REQUEST
-  -
-    name: ssl-config-comp
-    type: stlb::ssl-config
-    condition: $parameters.ssl-config and $parameters.cs-service-type == SSL
-    properties-default-sources:
-      - $parameters
-    properties:
-        vserver-name: $components.cs-config-comp.outputs.csvserver.properties.name
-        vserver-type: CSVSERVER
-  -
-    name: compression-config-comp
-    type: stlb::compression-config
-    condition: $parameters.compression-config
-    properties-default-sources:
-      - $parameters
-  -
-    name: compression-policies-bindings-comp
-    type: stlb::vserver-cmppolicies-bindings
-    condition: $parameters.compression-config
-    properties:
-        vserver-name: $components.cs-config-comp.outputs.csvserver.properties.name
-        vserver-type: CSVSERVER
-        policies:
-          -
-            name: $components.compression-config-comp.outputs.cmp-request-policy-label
-            type: POLICYLABEL
-            bind-point: REQUEST
-          -
-            name: $components.compression-config-comp.outputs.cmp-response-policy-label
-            type: POLICYLABEL
-            bind-point: RESPONSE

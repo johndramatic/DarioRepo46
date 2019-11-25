@@ -21,7 +21,7 @@ substitutions:
   cspol-priority(priority): 10100 - 100 * $priority
   lbname-from-poolname(pool-name): $parameters.appname + "-" + $pool-name
 parameters-default-sources:
-  - cmtypes::csvserver-params
+  - cmtypes::csvserver-params-gts-11-19-2019
 parameters: 
   - 
     name: default-lb-pool
