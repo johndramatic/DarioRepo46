@@ -44,4 +44,4 @@ parameters:
       summary_display: true
       collapse_pane: false
     parameters-default-sources:
-      - stlb::lb-mon-gts-11-19-2019
+      - stlb::lb-mon
