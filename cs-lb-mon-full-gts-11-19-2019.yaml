@@ -4,7 +4,7 @@ version: "1.0"
 display-name: Content-Switching StyleBook with L7 Features
 description: |    
     This StyleBook builds on, and augments the cs-lb-mon StyleBook by adding the ability    
-    to make use of rewrite, responder or compression features of the Citrix ADC
+    to make use of rewrite or responder features of the Citrix ADC
 schema-version: "1.0"
 import-stylebooks: 
   - 
