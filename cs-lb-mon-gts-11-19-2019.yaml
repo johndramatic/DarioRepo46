@@ -82,7 +82,7 @@ components:
           is-default: true
       - 
         name: lb-mon-comps
-        type: stlb::lb-mon  
+        type: stlb::lb-mon-gts-11-19-2019
         condition: $parameters.pools
         description: "This list of components are used to generate LB Vservers for all the pools used in Content Switching (L7 rules supplied in parameters)"
         repeat: $parameters.pools
@@ -90,7 +90,7 @@ components:
         properties-default-sources:
           - $pool.lb-pool
         properties: 
-          lb-appname: $parameters.appname + "-" + $pool.lb-pool.lb-appname
+          appname: $parameters.appname + "-" + $pool.lb-pool.lb-appname
         components:
           - 
             name: cs-lb-bind-comp
