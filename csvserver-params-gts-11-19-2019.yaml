@@ -34,7 +34,7 @@ parameters:
     type: tcp-port
     gui:
       updatable: false
-    default: *
+    default: "*"
     required: true
   - 
     name: cs-service-type
