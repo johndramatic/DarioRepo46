@@ -16,9 +16,9 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters-default-sources:
-    - stlb::cs-lb-mon
-    - cmtypes::rewrite-config-params
-    - cmtypes::responder-config-params
+    - stlb::cs-lb-mon-gts-11-19-2019
+    - cmtypes::rewrite-config-params-gts-11-19-2019
+    - cmtypes::responder-config-params-gts-11-19-2019
 components:
   -
     name: cs-config-comp
