@@ -49,7 +49,7 @@ components:
     properties-default-sources:
       - $parameters.default-lb-pool
     properties: 
-      lb-appname: $parameters.appname + "-lb-default"
+      appname: $parameters.appname + "-lb-default"
   - 
     name: csvserver-comp
     type: ns::csvserver
