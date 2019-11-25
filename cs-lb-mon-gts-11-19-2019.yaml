@@ -29,7 +29,7 @@ parameters:
     description: "Details of the Default pool for this application."
     type: object
     parameters-default-sources:
-      - stlb::lb-mon-gts
+      - stlb::lb-mon
   - 
     name: pools
     label: "Content Switched App Other Server Pools"
