@@ -88,9 +88,9 @@ components:
         repeat: $parameters.pools
         repeat-item: pool
         properties-default-sources:
-          - $pool.lb-pool
+          - $parameters.pools.lb-pool
         properties: 
-          appname: $parameters.appname + "-" + $pool.lb-pool.appname
+          appname: $parameters.appname + "-" + $parameters.pools.lb-pool.appname
         components:
           - 
             name: cs-lb-bind-comp
