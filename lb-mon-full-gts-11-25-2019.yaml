@@ -72,3 +72,7 @@ components:
             name: $components.responder-config-comp.outputs.responder-policy-label
             type: POLICYLABEL
             bind-point: REQUEST
+outputs: 
+  - 
+    name: lbvserver
+    value: $components.lb-config-comp.outputs.lbvserver
