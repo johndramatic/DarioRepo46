@@ -22,12 +22,12 @@ parameters-default-sources:
 components:
   -
     name: cs-config-comp
-    type: stlb::cs-lb-mon
+    type: stlb::cs-lb-mon-gts-11-19-2019
     properties-default-sources:
       - $parameters
   -
     name: rewrite-config-comp
-    type: stlb::rewrite-config
+    type: stlb::rewrite-config-gts-11-19-2019
     condition: $parameters.rewrite-config
     properties-default-sources:
       - $parameters
@@ -49,7 +49,7 @@ components:
             bind-point: RESPONSE
   -
     name: responder-config-comp
-    type: stlb::responder-config
+    type: stlb::responder-config-gts-11-19-2019
     condition: $parameters.responder-config
     properties-default-sources:
       - $parameters
