@@ -44,7 +44,7 @@ components:
   - 
     name: default-lb-mon-comp
     condition: $parameters.default-lb-pool
-    type: stlb::lb-mon-full-gts-11-25-2019
+    type: stlb::lb-mon-gts-11-25-2019
     description: "This component is used to generate the only LB Vserver for this config when there are no L7 rules supplied (no Content Switching)."
     properties-default-sources:
       - $parameters.default-lb-pool
