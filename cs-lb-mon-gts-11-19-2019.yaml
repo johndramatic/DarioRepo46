@@ -86,11 +86,11 @@ components:
         condition: $parameters.pools
         description: "This list of components are used to generate LB Vservers for all the pools used in Content Switching (L7 rules supplied in parameters)"
         repeat: $parameters.pools
-        repeat-item: pools
+        repeat-item: pool
         properties-default-sources:
-          - $pools.lb-pool
+          - $parameters.pools.lb-pool
         properties: 
-          appname: $parameters.appname + "-" + $pools.lb-pool.lb-appname
+          appname: $parameters.appname + "-" + $parameters.pools.lb-pool.lb-appname
         components:
           - 
             name: cs-lb-bind-comp
