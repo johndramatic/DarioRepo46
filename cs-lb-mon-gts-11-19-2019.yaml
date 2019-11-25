@@ -34,7 +34,7 @@ parameters:
     name: pools
     label: "Content Switched App Other Server Pools"
     description: "Details of other server pools for the content switched application."
-    type: "cmtypes::cs-pool[]"
+    type: "cmtypes::cs-pool-gts-11-19-2019[]"
   - 
     name: certificates
     label: "SSL Certificate Settings"
