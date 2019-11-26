@@ -73,7 +73,7 @@ components:
     components: 
       - 
         name: default-cs-lb-bind-comp
-        type: stlb::cs-lb-bind
+        type: stlb::cs-lb-bind-gts-11-25-2019
         condition: $parameters.default-lb-pool
         description: "This component is used to create and bind CS Policy to the CS vserver"
         properties: 
