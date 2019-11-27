@@ -3,6 +3,7 @@ namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "HTTP/SSL Content Switched Application with Monitors"
 description: "This StyleBook defines a typical HTTP or SSL Content Switched Application configuration with monitors."
+private: true
 schema-version: "1.0"
 import-stylebooks: 
   - 
