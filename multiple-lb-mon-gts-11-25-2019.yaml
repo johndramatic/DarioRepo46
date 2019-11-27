@@ -29,10 +29,8 @@ parameters:
     name: lb-pool
     label: "Pool Details"
     description: "Name of additional server pool"
-    type: object
+    type: stlb::lb-mon-full-gts-11-25-2019[]
     required: true
-    parameters-default-sources:
-      - stlb::lb-mon-full-gts-11-25-2019[]
 components: 
   - 
     name: default-lb-mon-comp
