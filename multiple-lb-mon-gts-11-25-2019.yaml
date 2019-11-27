@@ -31,9 +31,6 @@ parameters:
     description: "Name of additional server pool"
     type: object
     required: true
-    gui: 
-      summary_display: true
-      collapse_pane: false
     parameters-default-sources:
       - stlb::lb-mon-full-gts-11-25-2019[]
 components: 
