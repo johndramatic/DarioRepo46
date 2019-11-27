@@ -19,12 +19,51 @@ import-stylebooks:
     version: "1.0"
 parameters: 
   - 
+    name: lb-virtual-ip
+    label: "Load Balanced App Virtual IP address"
+    description: "Virtual IP address representing the Load Balanced application"
+    type: ipaddress
+    required: true
+  -
+    name: snip
+    label: SNIP
+    type: object  
+    required: true    
+    parameters:  
+      - 
+        name: snip-ipaddress
+        label: IP Address
+        description: "The SNIP address for Backend connections"
+        type: ipaddress
+        required: true
+      -
+        name: snip-netmask
+        label: Netmask
+        description: "SNIP Netmask"
+        type: string
+        required: true
+        default: 255.255.254.0
+  - 
     name: lb-pool
     label: "Pool Details"
     description: "Name of additional server pool"
     type: stlb::lb-multiple-lb-mon-param-gts-11-25-2019[]
     required: true
 components: 
+  - 
+    name: snip-be
+    type: ns::nsip
+    properties:
+      ipaddress: $parameters.snip.snip-ipaddress
+      netmask: $parameters.snip.snip-netmask
+      type: snip      
+  - 
+    name: netprof-comp
+    type: ns::netprofile
+    properties: 
+      name: $parameters.appname + "-netprof"
+      srcip: str($components.snip-be.properties.ipaddress)
+      srcippersistency: ENABLED
   - 
     name: lb-mon-comps
     type: stlb::lb-mon-full-gts-11-25-2019
@@ -36,3 +75,5 @@ components:
       - $pool
     properties: 
       appname: $pool.appname
+      ipv46: $parameters.lb-virtual-ip
+      netprofile: $components.netprof-comp.properties.name
