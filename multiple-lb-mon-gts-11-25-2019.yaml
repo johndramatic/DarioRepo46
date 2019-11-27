@@ -20,6 +20,15 @@ import-stylebooks:
     version: "1.0"
 parameters: 
   - 
+    name: appname
+    label: "Content Switched Application Name"
+    description: "Name of the Content Switched application"
+    type: string
+    key: true
+    gui:
+      updatable: false
+    required: true
+  - 
     name: pools
     label: "Content Switched App Other Server Pools"
     description: "Details of other server pools for the content switched application."
@@ -35,7 +44,7 @@ components:
     properties-default-sources:
       - $pool.lb-pool
     properties: 
-      appname: $pool.lb-pool.appname
+      appname: $parameters.appname + "-" + $pool.lb-pool.appname
 outputs: 
   -
     name: non-default-lbvservers
