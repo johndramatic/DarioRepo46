@@ -35,7 +35,7 @@ components:
     properties-default-sources:
       - $pool.lb-pool
     properties: 
-      appname: $parameters.appname + "-" + $pool.lb-pool.appname
+      appname: $pool.lb-pool.appname
 outputs: 
   -
     name: non-default-lbvservers
