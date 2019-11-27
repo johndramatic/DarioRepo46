@@ -61,7 +61,7 @@ components:
     name: netprof-comp
     type: ns::netprofile
     properties: 
-      name: str($lb-virtual-ip) + "-netprof"
+      name: str($parameters.lb-virtual-ip) + "-netprof"
       srcip: str($components.snip-be.properties.ipaddress)
       srcippersistency: ENABLED
   - 
