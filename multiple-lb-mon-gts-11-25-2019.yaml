@@ -1,0 +1,49 @@
+name: multiple-lb-mon-gts-11-25-2019
+namespace: com.citrix.adc.stylebooks
+version: "1.0"
+display-name: "Multi port Application"
+description: "This StyleBook defines a multi-port Application configuration."
+private: true
+schema-version: "1.0"
+import-stylebooks: 
+  - 
+    namespace: netscaler.nitro.config
+    prefix: ns
+    version: "10.5"
+  - 
+    namespace: com.citrix.adc.stylebooks
+    prefix: stlb
+    version: "1.0"
+  - 
+    namespace: com.citrix.adc.commontypes
+    prefix: cmtypes
+    version: "1.0"
+substitutions: 
+  cspol-priority(priority): 10100 - 100 * $priority
+  lbname-from-poolname(pool-name): $parameters.appname + "-" + $pool-name
+parameters: 
+  - 
+    name: pools
+    label: "Content Switched App Other Server Pools"
+    description: "Details of other server pools for the content switched application."
+    type: "cmtypes::cs-pool-gts-11-25-2019[]"
+components: 
+  - 
+    name: lb-mon-comps
+    type: stlb::lb-mon-full-gts-11-25-2019
+    condition: $parameters.pools
+    description: "This list of components are used to generate LB Vservers for all the pools used in Content Switching (L7 rules supplied in parameters)"
+    repeat: $parameters.pools
+    repeat-item: pool
+    properties-default-sources:
+      - $pool.lb-pool
+    properties: 
+      appname: $parameters.appname + "-" + $pool.lb-pool.appname
+outputs: 
+  -
+    name: non-default-lbvservers
+    condition: $parameters.pools
+    repeat: $components.csvserver-comp.components.lb-mon-comps
+    repeat-item: lb-mon-item 
+    value: $lb-mon-item.outputs.lbvserver
+    description: "The other LBvserver components to which traffic is switched based on rule"
