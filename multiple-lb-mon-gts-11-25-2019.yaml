@@ -28,28 +28,3 @@ parameters:
     gui:
       updatable: false
     required: true
-  - 
-    name: pools
-    label: "Content Switched App Other Server Pools"
-    description: "Details of other server pools for the content switched application."
-    type: "cmtypes::cs-pool-gts-11-25-2019[]"
-components: 
-  - 
-    name: lb-mon-comps
-    type: stlb::lb-mon-full-gts-11-25-2019
-    condition: $parameters.pools
-    description: "This list of components are used to generate LB Vservers for all the pools used in Content Switching (L7 rules supplied in parameters)"
-    repeat: $parameters.pools
-    repeat-item: pool
-    properties-default-sources:
-      - $pool.lb-pool
-    properties: 
-      appname: $parameters.appname + "-" + $pool.lb-pool.appname
-outputs: 
-  -
-    name: non-default-lbvservers
-    condition: $parameters.pools
-    repeat: $components.csvserver-comp.components.lb-mon-comps
-    repeat-item: lb-mon-item 
-    value: $lb-mon-item.outputs.lbvserver
-    description: "The other LBvserver components to which traffic is switched based on rule"
