@@ -1,8 +1,8 @@
 name: multiple-lb-mon-gts-11-25-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
-display-name: "Multi port Application"
-description: "This StyleBook defines a multi-port Application configuration."
+display-name: "HTTP/SSL Content Switched Application with Monitors"
+description: "This StyleBook defines a typical HTTP or SSL Content Switched Application configuration with monitors."
 schema-version: "1.0"
 import-stylebooks: 
   - 
@@ -19,11 +19,25 @@ import-stylebooks:
     version: "1.0"
 parameters: 
   - 
-    name: appname
-    label: "Content Switched Application Name"
-    description: "Name of the Content Switched application"
-    type: string
-    key: true
-    gui:
-      updatable: false
-    required: true
+    name: default-lb-pool
+    label: "Content Switched App Default Server Pool"
+    description: "Details of the Default pool for this application."
+    type: object
+    parameters-default-sources:
+      - stlb::lb-mon-full-gts-11-25-2019
+components: 
+  - 
+    name: default-lb-mon-comp
+    condition: $parameters.default-lb-pool
+    type: stlb::lb-mon-full-gts-11-25-2019
+    description: "This component is used to generate the only LB Vserver for this config when there are no L7 rules supplied (no Content Switching)."
+    properties-default-sources:
+      - $parameters.default-lb-pool
+    properties: 
+      appname: $parameters.appname + "-lb-default"
+outputs:   
+  -
+    name: default-lbvserver
+    condition: $parameters.default-lb-pool
+    value: $components.default-lb-mon-comp.outputs.lbvserver
+    description: "The default LBvserver component"
