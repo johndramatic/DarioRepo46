@@ -40,6 +40,17 @@ components:
       - $parameters.default-lb-pool
     properties: 
       appname: $parameters.default-lb-pool.appname + "-lb-default"
+  - 
+    name: lb-mon-comps
+    type: stlb::lb-mon-full-gts-11-25-2019
+    condition: $parameters.pools
+    description: "This list of components are used to generate LB Vservers for all the pools used in Content Switching (L7 rules supplied in parameters)"
+    repeat: $parameters.pools
+    repeat-item: pool
+    properties-default-sources:
+      - $pool.lb-pool
+    properties: 
+      appname: $pool.lb-pool.appname
 outputs:   
   -
     name: default-lbvserver
