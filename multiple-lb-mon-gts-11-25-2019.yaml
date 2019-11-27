@@ -29,7 +29,7 @@ parameters:
     name: lb-pool
     label: "Pool Details"
     description: "Name of additional server pool"
-    type: stlb::lb-mon-full-gts-11-25-2019[]
+    type: stlb::lb-multiple-lb-mon-param-gts-11-25-2019[]
     required: true
 components: 
   - 
