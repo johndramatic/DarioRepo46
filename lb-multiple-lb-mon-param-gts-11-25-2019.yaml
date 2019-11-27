@@ -346,6 +346,5 @@ parameters:
             type: cmtypes::monitor-gts-11-25-2019[]
 
 parameters-default-sources:
-    - stlb::lb-mon-gts-11-25-2019
     - cmtypes::rewrite-config-params-gts-11-25-2019
     - cmtypes::responder-config-params-gts-11-25-2019
