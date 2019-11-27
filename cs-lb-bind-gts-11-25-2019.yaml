@@ -1,5 +1,5 @@
 --- 
-name: cs-lb-bind-gts-11-25-2019
+name:  cs-lb-bind-gts-11-25-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 description: "This StyleBook is defined to create and bind a set of CS Policies to an existing CS Vserver."
@@ -62,14 +62,14 @@ components:
     type: ns::csaction 
     condition: not $parameters.is-default
     properties: 
-      name: $substitutions.cs-actionname($parameters.pool.lb-pool.lb-appname)
+      name: $substitutions.cs-actionname($parameters.pool.lb-pool.appname)
       targetlbvserver: $parameters.lbvserver-name
   - 
     name: cspolicy-comp
     type: ns::cspolicy
     condition: not $parameters.is-default
     properties: 
-      policyname: $substitutions.cs-policyname($parameters.pool.lb-pool.lb-appname)
+      policyname: $substitutions.cs-policyname($parameters.pool.lb-pool.appname)
       rule: $parameters.pool.rule
       action: $components.csaction-comp.properties.name
 
