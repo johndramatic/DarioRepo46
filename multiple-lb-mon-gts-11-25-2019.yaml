@@ -3,7 +3,6 @@ namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "Multi port Application"
 description: "This StyleBook defines a multi-port Application configuration."
-private: true
 schema-version: "1.0"
 import-stylebooks: 
   - 
