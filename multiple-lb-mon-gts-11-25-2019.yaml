@@ -18,9 +18,6 @@ import-stylebooks:
     namespace: com.citrix.adc.commontypes
     prefix: cmtypes
     version: "1.0"
-substitutions: 
-  cspol-priority(priority): 10100 - 100 * $priority
-  lbname-from-poolname(pool-name): $parameters.appname + "-" + $pool-name
 parameters: 
   - 
     name: pools
