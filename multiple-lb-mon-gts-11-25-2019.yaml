@@ -35,7 +35,7 @@ parameters:
       summary_display: true
       collapse_pane: false
     parameters-default-sources:
-      - stlb::lb-mon-full-gts-11-25-2019
+      - stlb::lb-mon-full-gts-11-25-2019[]
 components: 
   - 
     name: default-lb-mon-comp
