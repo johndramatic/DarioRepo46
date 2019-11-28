@@ -76,6 +76,7 @@ components:
     properties: 
       appname: $pool.appname
       lb-virtual-ip: $parameters.lb-virtual-ip
+      netprofile: $components.netprof-comp.properties.name
 outputs: 
   - 
     name: netprofile
