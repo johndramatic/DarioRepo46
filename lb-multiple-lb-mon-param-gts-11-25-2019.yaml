@@ -2,7 +2,7 @@
 name: lb-multiple-lb-mon-param-gts-11-25-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
-display-name: Load Balancing StyleBook with L7 Features -gts-11-25-2019
+display-name: "This stylebook defines the parameters for a load balancing virtual server."
 private: true
 description: |    
     This StyleBook builds on, and augments the lb-mon StyleBook by adding the ability    

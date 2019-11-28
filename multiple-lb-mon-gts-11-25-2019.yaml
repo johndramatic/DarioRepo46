@@ -1,8 +1,8 @@
 name: multiple-lb-mon-gts-11-25-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
-display-name: "HTTP/SSL Content Switched Application with Monitors"
-description: "This StyleBook defines a typical HTTP or SSL Content Switched Application configuration with monitors."
+display-name: "Multi-port VIP Application"
+description: "This StyleBook defines a multi-port VIP Application configuration"
 schema-version: "1.0"
 import-stylebooks: 
   - 
