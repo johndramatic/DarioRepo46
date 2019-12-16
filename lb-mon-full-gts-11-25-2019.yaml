@@ -32,7 +32,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname + "-" + $parameters.lb-service-type + "-" + $parameters.lb-virtual-port + "-" + $parameters.owner
+      appname: $parameters.appname + "-" + $parameters.lb-service-type + "-" + str($parameters.lb-virtual-port) + "-" + $parameters.owner
   -
     name: rewrite-config-comp
     type: stlb::rewrite-config-gts-11-25-2019
