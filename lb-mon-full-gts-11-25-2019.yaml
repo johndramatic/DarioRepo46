@@ -25,13 +25,6 @@ parameters-default-sources:
     - cmtypes::rewrite-config-params-gts-11-25-2019
     - cmtypes::responder-config-params-gts-11-25-2019
 components:
-  - 
-    name: snip-be
-    type: ns::nsip
-    properties:
-      ipaddress: $parameters.snip.snip-ipaddress
-      netmask: $parameters.snip.snip-netmask
-      type: snip 
   -
     name: lb-config-comp
     type: stlb::lb-mon-gts-11-25-2019
@@ -87,6 +80,3 @@ outputs:
   - 
     name: lbvserver
     value: $components.lb-config-comp.outputs.lbvserver
-  - 
-    name: snip-be
-    value: $components.snip-be

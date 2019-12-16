@@ -1,0 +1,41 @@
+--- 
+name: lb-mon-full-gts-11-25-2019
+namespace: com.citrix.adc.stylebooks
+version: "1.0"
+display-name: Load Balancing StyleBook with L7 Features and SNIP creation -gts-11-25-2019 
+description: |    
+    This StyleBook builds on, and augments the lb-mon StyleBook by adding the ability    
+    to make use of rewrite, responder and SSL ciphers features of the Citrix ADC
+schema-version: "1.0"
+import-stylebooks:
+  - 
+    namespace: netscaler.nitro.config
+    prefix: ns
+    version: "11.1" 
+  - 
+    namespace: com.citrix.adc.stylebooks
+    prefix: stlb
+    version: "1.0"
+  - 
+    namespace: com.citrix.adc.commontypes
+    prefix: cmtypes
+    version: "1.0"
+parameters-default-sources:
+    - stlb::lb-mon-gts-11-25-2019
+    - cmtypes::rewrite-config-params-gts-11-25-2019
+    - cmtypes::responder-config-params-gts-11-25-2019
+components:
+  - 
+    name: snip-be
+    type: ns::nsip
+    properties:
+      ipaddress: $parameters.snip.snip-ipaddress
+      netmask: $parameters.snip.snip-netmask
+      type: snip 
+  -
+    name: lb-config-comp-final
+    type: stlb::lb-mon-full-gts-11-25-2019
+    properties-default-sources:
+      - $parameters
+    properties:
+      appname: $parameters.appname + "-" + $parameters.owner
