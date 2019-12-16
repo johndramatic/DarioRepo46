@@ -47,7 +47,7 @@ components:
     type: ns::netprofile
     properties: 
       name: $parameters.appname + "-netprof"
-      srcip: str($components.snip-be.properties.ipaddress)
+      srcip: str($parameters.snip.snip-ipaddress)
       srcippersistency: ENABLED
   - 
     name: lbvserver-comp
