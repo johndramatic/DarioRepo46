@@ -1,0 +1,23 @@
+--- 
+name: lb-multiple-lb-mon-param-gts-12-16-2019
+namespace: com.citrix.adc.stylebooks
+version: "1.0"
+display-name: "This stylebook defines the parameters for a load balancing virtual server."
+private: true
+description: |    
+    This StyleBook builds on, and augments the lb-mon StyleBook by adding the ability    
+    to make use of rewrite, responder and SSL ciphers features of the Citrix ADC
+schema-version: "1.0"
+import-stylebooks: 
+  - 
+    namespace: com.citrix.adc.stylebooks
+    prefix: stlb
+    version: "1.0"
+  - 
+    namespace: com.citrix.adc.commontypes
+    prefix: cmtypes
+    version: "1.0"
+parameters-default-sources:
+    - cmtypes::lbvserver-params-no-vipsnip-gts-12-16-2019
+    - cmtypes::rewrite-config-params-gts-12-16-2019
+    - cmtypes::responder-config-params-gts-12-16-2019 

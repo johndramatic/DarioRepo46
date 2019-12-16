@@ -1,0 +1,350 @@
+--- 
+name: lbvserver-params-no-vipsnip-gts-12-16-2019
+namespace: com.citrix.adc.commontypes
+version: "1.0"
+display-name: "This stylebook defines the parameters for a load balancing virtual server."
+private: true
+description: |    
+    This StyleBook builds on, and augments the lb-mon StyleBook by adding the ability    
+    to make use of rewrite, responder and SSL ciphers features of the Citrix ADC
+schema-version: "1.0"
+import-stylebooks: 
+  - 
+    namespace: com.citrix.adc.stylebooks
+    prefix: stlb
+    version: "1.0"
+  - 
+    namespace: com.citrix.adc.commontypes
+    prefix: cmtypes
+    version: "1.0"
+parameters:
+  - 
+    name: appname
+    label: "Load Balanced Application Name"
+    description: "Name of the Load Balanced application"
+    type: string
+    key: true
+    gui:
+      updatable: false
+    required: true
+  - 
+    name: lb-service-type
+    label: "Load Balanced App Protocol"
+    description: "Protocol used for the Load Balanced application."
+    type: string
+    default: SSL    
+    required: true
+    gui:
+      updatable: false
+    allowed-values: 
+      - HTTP
+      - SSL
+      - SSL_BRIDGE
+      - TCP
+      - UDP
+      - ANY
+      - DNS
+      - DNS_TCP
+      - FTP
+      - MSSQL
+      - MYSQL
+      - RADIUS
+  - 
+    name: lb-virtual-port
+    label: "Load Balanced App Virtual Port"
+    description: "TCP port representing the Load Balanced application"
+    type: tcp-port
+    gui:
+      updatable: false
+    default: 443
+  - 
+    name: request-id
+    label: "Request ID"
+    description: "Service Now Request ID"
+    type: string
+    pattern: "REQ.*"
+    gui:
+      updatable: false
+  - 
+    name: owner
+    label: "Owner"
+    description: "Service Owner team"
+    type: string
+    required: true
+  - 
+    name: algorithm
+    label: "Load Balanced App Algorithm"
+    description: "Load Balancing algorithm for the application"
+    type: string
+    default: LEASTCONNECTION        
+    allowed-values: 
+      - LEASTCONNECTION
+      - ROUNDROBIN
+      - LEASTRESPONSETIME
+      - SOURCEIPHASH
+  - 
+    name: persistence
+    label: "Load Balanced App Persistence Type"
+    description: "Persistence type used for members of this pool"
+    type: string
+    default: SRCIPDESTIP
+    allowed-values: 
+      - NONE
+      - SOURCEIP
+      - COOKIEINSERT
+      - SRCIPDESTIP
+      - DESTIP
+      - SSLSESSION
+  - 
+    name: timeout
+    label: "Load Balanced App Persistence Timeout"
+    description: "Time period for which a persistence session is in effect."
+    type: number
+    default: 2
+  - 
+    name: persistence-backup
+    label: "Load Balanced App Backup Persistence"
+    description: "Backup persistence type for the virtual server."
+    type: string
+    default: NONE
+    allowed-values: 
+      - NONE
+      - SOURCEIP
+  - 
+    name: backup-persistence-timeout
+    label: "Load Balanced App Backup Persistence Timeout"
+    description: "Time period for which backup persistence is in effect."
+    type: number
+    default: 2
+  - 
+    name: lb-advanced
+    label: "Advanced Load Balancer Settings"
+    description: "Advanced load balancer settings"
+    type: object
+    gui: 
+      collapse_pane: true    
+    parameters-default-sources:
+      - cmtypes::vserver-advanced-params-gts-12-16-2019
+  - 
+    name: svc-service-type
+    label: "Application Server Protocol"
+    description: "Protocol of the application server."
+    type: string
+    default: HTTP   
+    gui:
+        updatable: false
+    allowed-values:
+      - HTTP
+      - SSL
+      - SSL_BRIDGE
+      - TCP
+      - UDP
+      - ANY
+      - DNS
+      - DNS_TCP
+      - FTP
+      - MSSQL
+      - MYSQL
+      - RADIUS
+    required: true
+  -
+    name: svc-servers
+    label: "Server IPs and Ports"
+    description: "List of server IPs and Ports"
+    type: cmtypes::server-ip-port-params-gts-12-16-2019[]
+  - 
+    name: svc-server-domains
+    label: "Application Servers FQDN names"
+    description: "List of the domain names of the application servers that are members of this Load Balanced application"
+    type: object[]
+    parameters: 
+      - 
+        name:  domain
+        label: "Application Server Domain Name"
+        description: "Domain name of the server."
+        type: string
+        required: true
+      - 
+        name: port
+        label: "Application Server Port"
+        description: "TCP port of a server"
+        type: tcp-port
+        default: 80
+      -
+        name: weight
+        label: "Weight"
+        description: "Weight of the service that is bound to the servicegroup"
+        type: number
+        min-value: 1
+  - 
+    name: svcg-advanced
+    label: "Advanced Application Server Settings"
+    description: "Advanced Application Server Settings"
+    type: object
+    gui: 
+      collapse_pane: true
+    parameters: 
+      - 
+        name: svc-max-clients
+        label: "Service Group Maximum Clients"
+        description: "Maximum number of simultaneous open connections for the service group."
+        type: number
+      - 
+        name: svc-max-requests
+        label: "Service Group Maximum Requests"
+        description: "Maximum number of requests that can be sent on a persistent connection to the service group."
+        type: number
+      - 
+        name: svc-client-ip
+        label: "Service Group CIP"
+        description: "Insert the Client IP header in requests forwarded to the service."
+        type: string
+        default: DISABLED  
+        allowed-values: 
+          - DISABLED
+          - ENABLED  
+      - 
+        name: svc-client-ip-header
+        label: "Service Group CIP Header"
+        description: "Name of the HTTP header whose value must be set to the IP address of the client. Used with the Client IP parameter. "
+        type: string
+      - 
+        name: svc-use-source-ip
+        label: "Preserve Client Source IP (USIP)"
+        description: "Use client's IP address as the source IP address when initiating connection to the server."
+        type: string
+        default: "NO"  
+        allowed-values: 
+          - "NO"
+          - "YES"
+      - 
+        name: svc-use-proxy-port
+        label: "Service Group UseProxyPort"
+        description: "Use the proxy port as the source port when initiating connections with the server."
+        type: string
+        default: "NO"
+        allowed-values: 
+          - "NO"
+          - "YES"
+      - 
+        name: svc-sure-connect
+        label: "Service Group Sure Connect"
+        description: "State of the SureConnect feature for the service group."
+        type: string
+        default: "OFF"
+        allowed-values: 
+          - "OFF"
+          - "ON"
+      - 
+        name: svc-surge-protection
+        label: "Service Group Surge Protection"
+        description: "Enable surge protection for the service group."
+        type: string
+        default: "OFF"
+        allowed-values: 
+          - "OFF"
+          - "ON"
+      - 
+        name: svc-client-timeout
+        label: "Service Group Client Timeout"
+        description: "Time, in seconds, after which to terminate an idle client connection."
+        type: number     
+        default: 1800
+      - 
+        name: svc-server-timeout
+        label: "Service Group Server Timeout"
+        description: "Time, in seconds, after which to terminate an idle server connection."
+        type: number
+        default: 1800
+      - 
+        name: svc-client-keepalive
+        label: "Service Group Client Keep-Alive"
+        description: "Enable client keep-alive for the service group."
+        type: string
+        default: "NO"  
+        allowed-values: 
+          - "NO"
+          - "YES"     
+      - 
+        name: svc-tcp-buffering
+        label: "Service Group TCP buffering"
+        description: "Enable TCP buffering for the service group."
+        type: string
+        default: "NO" 
+        allowed-values: 
+          - "NO"
+          - "YES"
+      - 
+        name: svc-compression
+        label: "Service Group Compression"
+        description: "Enable compression for the specified service."
+        type: string
+        default: "NO"  
+        allowed-values: 
+          - "NO"
+          - "YES"
+      - 
+        name: svc-state
+        label: "Service Group State"
+        description: "Initial state of the service group."
+        type: string
+        default: ENABLED
+        allowed-values: 
+          - DISABLED
+          - ENABLED
+      - 
+        name: svc-downstate-flush
+        label: "Service Group Down State Flush"
+        description: "Flush all active transactions associated with all the services in the service group whose state transitions from UP to DOWN."
+        type: string
+        default: DISABLED          
+        allowed-values: 
+          - DISABLED
+          - ENABLED
+      - 
+        name: svc-custom-server-id
+        label: "Service Group Customer Server ID"
+        description: "The identifier for this IP:Port pair. Used when the persistency type is set to Custom Server ID."
+        type: string
+        default: NONE
+      - 
+        name: svc-enable-health-monitor
+        label: "Enable Service Group Monitoring"
+        description: "Enabled Health Monitoring if true"
+        type: string
+        default: "NO"
+        allowed-values:
+          - "YES"
+          - "NO"
+  -
+    name: monitor-list
+    label: "Monitors to be used"
+    required: true 
+    type: object
+    parameters:  
+      - 
+        name: tcp-mon
+        label: "TCP Monitor"
+        description: "Use TCP Monitor to check port availability on backend server"
+        type: boolean
+        required: true
+      -
+        name: ping-mon
+        label: "Ping Monitor"
+        description: "Use PING Monitor to check ICMP reachability of backend server"
+        type: boolean
+        required: true
+      -
+        name: adv-mon
+        label: "Advanced Monitor"
+        type: object
+        parameters: 
+          -
+            name: monitors
+            label: "List of Monitors"
+            description: "List of Monitors to monitor Application Servers"
+            type: cmtypes::monitor-gts-12-16-2019[]
+
+parameters-default-sources:
+    - cmtypes::rewrite-config-params-gts-12-16-2019
+    - cmtypes::responder-config-params-gts-12-16-2019 
