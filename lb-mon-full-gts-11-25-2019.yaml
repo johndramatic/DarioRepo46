@@ -32,7 +32,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname + "-" + $parameters.owner
+      appname: $parameters.appname
   -
     name: rewrite-config-comp
     type: stlb::rewrite-config-gts-11-25-2019
@@ -40,7 +40,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname + "-" + $parameters.owner
+      appname: $parameters.appname
   -
     name: rewrite-policies-bindings-comp
     type: stlb::vserver-rewritepolicies-bindings
@@ -64,7 +64,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname + "-" + $parameters.owner
+      appname: $parameters.appname
   -
     name: responder-policies-bindings-comp
     type: stlb::vserver-responderpolicies-bindings
