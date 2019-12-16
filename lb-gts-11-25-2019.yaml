@@ -43,13 +43,6 @@ parameters:
         type: "cmtypes::certificate[]"
 components: 
   - 
-    name: snip-be
-    type: ns::nsip
-    properties:
-      ipaddress: $parameters.snip.snip-ipaddress
-      netmask: $parameters.snip.snip-netmask
-      type: snip      
-  - 
     name: netprof-comp
     type: ns::netprofile
     properties: 
