@@ -40,7 +40,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname + "-" + $parameters.lb-service-type + "-" + $parameters.lb-virtual-port + "-" + $parameters.owner
+      appname: $parameters.appname + "-" + $parameters.lb-service-type + "-" + str($parameters.lb-virtual-port) + "-" + $parameters.owner
   -
     name: rewrite-policies-bindings-comp
     type: stlb::vserver-rewritepolicies-bindings
@@ -64,7 +64,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname + "-" + $parameters.lb-service-type + "-" + $parameters.lb-virtual-port + "-" + $parameters.owner
+      appname: $parameters.appname + "-" + $parameters.lb-service-type + "-" + str($parameters.lb-virtual-port) + "-" + $parameters.owner
   -
     name: responder-policies-bindings-comp
     type: stlb::vserver-responderpolicies-bindings
