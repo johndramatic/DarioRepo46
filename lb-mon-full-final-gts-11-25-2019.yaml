@@ -38,4 +38,4 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname + "-" + $parameters.owner
+      appname: $parameters.appname 
