@@ -27,8 +27,7 @@ parameters:
   -
     name: snip
     label: SNIP
-    type: object  
-    required: true    
+    type: object     
     parameters:  
       - 
         name: snip-ipaddress
