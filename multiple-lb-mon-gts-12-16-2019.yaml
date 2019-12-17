@@ -70,4 +70,4 @@ components:
       appname: $pool.appname
       lb-virtual-ip: $parameters.lb-virtual-ip
       snip:
-        - snip-ipaddress: $parameters.snip-ipaddress
+        - snip-ipaddress: $parameters.snip.snip-ipaddress
