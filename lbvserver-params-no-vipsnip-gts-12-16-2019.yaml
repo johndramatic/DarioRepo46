@@ -344,7 +344,3 @@ parameters:
             label: "List of Monitors"
             description: "List of Monitors to monitor Application Servers"
             type: cmtypes::monitor-gts-12-16-2019[]
-
-parameters-default-sources:
-    - cmtypes::rewrite-config-params-gts-12-16-2019
-    - cmtypes::responder-config-params-gts-12-16-2019 
