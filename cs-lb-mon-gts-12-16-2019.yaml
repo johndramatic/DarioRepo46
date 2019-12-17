@@ -30,7 +30,7 @@ parameters:
     description: "Details of the Default pool for this application."
     type: object
     parameters-default-sources:
-      - cmtypes::lbvserver-params-no-vipsnip-gts-12-16-2019
+      - cmtypes::csvserver-params-no-vipsnipport-gts-12-16-2019
       - cmtypes::rewrite-config-params-gts-12-16-2019
       - cmtypes::responder-config-params-gts-12-16-2019
   - 
@@ -52,9 +52,10 @@ components:
     properties-default-sources:
       - $parameters.default-lb-pool
     properties: 
-      appname: $parameters.appname + "-lb-default"
+      appname: $parameters.appname + "-" + $parameters.default-lb-pool.appname + "-lb-default"
       lb-virtual-ip: 0.0.0.0
       snip: $parameters.snip
+      lb-virtual-port: 0
   - 
     name: csvserver-comp
     type: ns::csvserver
