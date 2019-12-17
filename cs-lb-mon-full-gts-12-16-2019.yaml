@@ -20,6 +20,13 @@ parameters-default-sources:
     - cmtypes::rewrite-config-params-gts-12-16-2019
     - cmtypes::responder-config-params-gts-12-16-2019
 components:
+  - 
+    name: snip-be
+    type: ns::nsip
+    properties:
+      ipaddress: $parameters.snip.snip-ipaddress
+      netmask: $parameters.snip.snip-netmask
+      type: snip 
   -
     name: cs-config-comp
     type: stlb::cs-lb-mon-gts-12-16-2019
