@@ -27,7 +27,9 @@ parameters:
   -
     name: snip
     label: SNIP
-    type: object     
+    type: object
+    gui: 
+      collapse_pane: false       
     parameters:  
       - 
         name: snip-ipaddress
@@ -68,4 +70,3 @@ components:
     properties: 
       appname: $pool.appname
       lb-virtual-ip: $parameters.lb-virtual-ip
-      snip.snip-ipaddress: $parameters.snip-ipaddress
