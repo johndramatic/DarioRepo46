@@ -54,6 +54,7 @@ components:
     properties: 
       appname: $parameters.appname + "-lb-default"
       lb-virtual-ip: 0.0.0.0
+      snip: $parameters.snip
   - 
     name: csvserver-comp
     type: ns::csvserver

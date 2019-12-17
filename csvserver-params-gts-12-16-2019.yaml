@@ -26,6 +26,25 @@ parameters:
     description: "Virtual IP address representing the Content Switched application"
     type: ipaddress
     required: true
+  -
+    name: snip
+    label: SNIP
+    type: object
+    required: true      
+    parameters:  
+      - 
+        name: snip-ipaddress
+        label: IP Address
+        description: "The SNIP address for Backend connections"
+        type: ipaddress
+        required: true
+      -
+        name: snip-netmask
+        label: Netmask
+        description: "SNIP Netmask"
+        type: string
+        required: true
+        default: 255.255.254.0
   - 
     name: cs-virtual-port
     label: "Content Switched App Virtual Port"
