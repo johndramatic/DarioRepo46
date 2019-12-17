@@ -1,5 +1,5 @@
 --- 
-name:  cs-lb-bind-gts-11-25-2019
+name:  cs-lb-bind-gts-12-16-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 description: "This StyleBook is defined to create and bind a set of CS Policies to an existing CS Vserver."
@@ -47,7 +47,7 @@ parameters:
     name: pool
     label: "Server Pool"
     description: "Details of Server pool for this application."
-    type: cmtypes::cs-pool-gts-11-25-2019
+    type: cmtypes::cs-pool-gts-12-16-2019
 components: 
   - 
     name: cs-defaultlb-bind-comp

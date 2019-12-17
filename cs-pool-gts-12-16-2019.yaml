@@ -1,5 +1,5 @@
 --- 
-name: cs-pool-gts-11-25-2019
+name: cs-pool-gts-12-16-2019
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines a typical Content-Switching Pool of Servers."
@@ -44,4 +44,4 @@ parameters:
       summary_display: true
       collapse_pane: false
     parameters-default-sources:
-      - stlb::lb-mon-full-gts-11-25-2019
+      - stlb::lb-mon-full-gts-12-16-2019

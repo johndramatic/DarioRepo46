@@ -1,4 +1,4 @@
-name: cs-lb-mon-full-gts-11-25-2019
+name: cs-lb-mon-full-gts-12-16-2019
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: Content-Switching StyleBook with L7 Features
@@ -16,18 +16,18 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters-default-sources:
-    - stlb::cs-lb-mon-gts-11-25-2019
-    - cmtypes::rewrite-config-params-gts-11-25-2019
-    - cmtypes::responder-config-params-gts-11-25-2019
+    - stlb::cs-lb-mon-gts-12-16-2019
+    - cmtypes::rewrite-config-params-gts-12-16-2019
+    - cmtypes::responder-config-params-gts-12-16-2019
 components:
   -
     name: cs-config-comp
-    type: stlb::cs-lb-mon-gts-11-25-2019
+    type: stlb::cs-lb-mon-gts-12-16-2019
     properties-default-sources:
       - $parameters
   -
     name: rewrite-config-comp
-    type: stlb::rewrite-config-gts-11-25-2019
+    type: stlb::rewrite-config-gts-12-16-2019
     condition: $parameters.rewrite-config
     properties-default-sources:
       - $parameters
@@ -49,7 +49,7 @@ components:
             bind-point: RESPONSE
   -
     name: responder-config-comp
-    type: stlb::responder-config-gts-11-25-2019
+    type: stlb::responder-config-gts-12-16-2019
     condition: $parameters.responder-config
     properties-default-sources:
       - $parameters
