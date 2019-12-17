@@ -69,4 +69,4 @@ components:
     properties: 
       appname: $pool.appname
       lb-virtual-ip: $parameters.lb-virtual-ip
-      snip-ipaddress: 2.2.2.2
+      snip.snip-ipaddress: 2.2.2.2
