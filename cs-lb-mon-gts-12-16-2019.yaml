@@ -53,6 +53,7 @@ components:
       - $parameters.default-lb-pool
     properties: 
       appname: $parameters.appname + "-lb-default"
+      lb-virtual-ip: 0.0.0.0
   - 
     name: csvserver-comp
     type: ns::csvserver
