@@ -28,8 +28,7 @@ parameters:
     name: snip
     label: SNIP
     type: object
-    gui: 
-      collapse_pane: false       
+    required: true      
     parameters:  
       - 
         name: snip-ipaddress
