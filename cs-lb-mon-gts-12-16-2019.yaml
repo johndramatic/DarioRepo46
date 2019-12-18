@@ -52,7 +52,7 @@ components:
     properties-default-sources:
       - $parameters.default-lb-pool
     properties: 
-      appname: $parameters.appname + "-" + $parameters.default-lb-pool.appname + "-lb-default"
+      appname: "cs=" + $parameters.appname + "-lb=" + $parameters.default-lb-pool.appname
       lb-virtual-ip: 0.0.0.0
       snip: $parameters.snip
       lb-virtual-port: 0
