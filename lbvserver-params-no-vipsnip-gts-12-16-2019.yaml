@@ -297,6 +297,24 @@ parameters:
         allowed-values:
           - "YES"
           - "NO"
+  - 
+    name: cert-sect
+    label: "SSL Certificate Configuration"
+    description: "SSL Certificate Configuration"
+    type: object
+    gui: 
+      collapse_pane: true    
+    parameters:
+      - 
+        name: existing-certificate-name
+        label: "existing-certificate"
+        description: "Name of the existing certificate to be used. Exact match required"
+        type: string
+      - 
+        name: certificates
+        label: "SSL Certificate Settings"
+        description: "Certificates for this virtual server if this load Balanced application is exposed using SSL"
+        type: "cmtypes::certificate[]"
   -
     name: monitor-list
     label: "Monitors to be used"
