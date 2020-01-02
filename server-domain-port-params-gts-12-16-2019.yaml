@@ -18,6 +18,14 @@ parameters:
       description: "TCP port of a server"
       type: tcp-port
       default: 80
+   - 
+      name: add-server
+      label: "Add a server resource"
+      description: "Option to add a server entity explicity and be managed by the stylebook"
+      type: boolean
+      default: true
+      gui:
+        hidden: true
    -
       name: weight
       label: "Weight"

@@ -135,6 +135,7 @@ components:
             condition: $parameters.svc-server-domains
             repeat: $parameters.svc-server-domains
             repeat-item: server
+            repeat-condition: $server.add-server
             properties: 
               name: $server.domain + "-server"
               domain: $server.domain
