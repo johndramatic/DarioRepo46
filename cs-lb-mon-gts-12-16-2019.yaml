@@ -52,7 +52,7 @@ components:
     properties-default-sources:
       - $parameters.default-lb-pool
     properties: 
-      appname: $parameters.appname + "-lb" + $parameters.default-lb-pool.appname
+      appname: $parameters.appname + "-lb-" + $parameters.default-lb-pool.appname
       lb-virtual-ip: 0.0.0.0
       snip: $parameters.snip
       lb-virtual-port: 0
@@ -96,7 +96,10 @@ components:
         properties-default-sources:
           - $pool.lb-pool
         properties: 
-          appname: $parameters.appname + "-" + $pool.lb-pool.appname
+          appname: $parameters.appname + "-lb-" + $pool.lb-pool.appname
+          lb-virtual-ip: 0.0.0.0
+          snip: $parameters.snip
+          lb-virtual-port: 0          
         components:
           - 
             name: cs-lb-bind-comp
