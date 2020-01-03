@@ -39,10 +39,23 @@ parameters:
     description: "Details of other server pools for the content switched application."
     type: "cmtypes::cs-pool-gts-12-16-2019[]"
   - 
-    name: certificates
-    label: "SSL Certificate Settings"
-    description: "Certificates for this virtual server if this Content-Switched application is exposed using SSL"
-    type: "cmtypes::certificate[]"
+    name: cert-sect
+    label: "SSL Certificate Configuration"
+    description: "SSL Certificate Configuration"
+    type: object
+    gui: 
+      collapse_pane: true    
+    parameters:
+      - 
+        name: existing-certificate-name
+        label: "existing-certificate"
+        description: "Name of the existing certificate to be used. Exact match required"
+        type: string
+      - 
+        name: certificates
+        label: "SSL Certificate Settings"
+        description: "Certificates for this virtual server if this load Balanced application is exposed using SSL"
+        type: "cmtypes::certificate[]"
 components: 
   - 
     name: default-lb-mon-comp
@@ -110,13 +123,21 @@ components:
               lbvserver-name: $parent.outputs.lbvserver.properties.name
               pool: $pool
       - 
+        name: existing-cert-bindings-comp
+        type: ns::sslvserver_sslcertkey_binding 
+        description: "This component binds and existing certkey entities to a vserver."
+        condition: "$parameters.cert-sect.existing-certificate-name and ($parameters.cs-service-type == \"SSL\")"
+        properties: 
+          vservername: $parent.properties.name
+          certkeyname: $parameters.cert-sect.existing-certificate-name
+      - 
         name: csvserver-certs-bindings
         type: stlb::vserver-certs-binds
-        condition: $parameters.certificates
+        condition: $parameters.cert-sect.certificates and ($parameters.cs-service-type == \"SSL\")"
         description: "This component is used for uploading and binding a list of certificates to a CS vserver"
         properties: 
           vserver-name: $parent.properties.name
-          certificates: $parameters.certificates
+          certificates: $parameters.cert-sect.certificates
 outputs: 
   - 
     name: csvserver
