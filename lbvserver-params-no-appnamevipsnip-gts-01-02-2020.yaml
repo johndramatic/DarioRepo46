@@ -1,5 +1,5 @@
 --- 
-name: lbvserver-params-no-vipsnip-gts-01-02-2020
+name: lbvserver-params-no-appnamevipsnip-gts-01-02-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 display-name: "This stylebook defines the parameters for a load balancing virtual server."
@@ -18,15 +18,6 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters:
-  - 
-    name: appname
-    label: "Load Balanced Application Name"
-    description: "Name of the Load Balanced application"
-    type: string
-    key: true
-    gui:
-      updatable: false
-    required: true
   - 
     name: lb-service-type
     label: "Load Balanced App Protocol"
