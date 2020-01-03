@@ -65,7 +65,7 @@ components:
     properties-default-sources:
       - $parameters
     properties: 
-      redirect-to-https: false
+      responder-config.redirect-to-https: false
   -
     name: responder-policies-bindings-comp
     type: stlb::vserver-responderpolicies-bindings
