@@ -126,14 +126,14 @@ components:
         name: existing-cert-bindings-comp
         type: ns::sslvserver_sslcertkey_binding 
         description: "This component binds and existing certkey entities to a vserver."
-        condition: "$parameters.cert-sect.existing-certificate-name and ($parameters.cs-service-type == \"SSL\")"
+        condition: "$parameters.cert-sect.existing-certificate-name
         properties: 
           vservername: $parent.properties.name
           certkeyname: $parameters.cert-sect.existing-certificate-name
       - 
         name: csvserver-certs-bindings
         type: stlb::vserver-certs-binds
-        condition: $parameters.cert-sect.certificates and ($parameters.cs-service-type == \"SSL\")"
+        condition: $parameters.cert-sect.certificates 
         description: "This component is used for uploading and binding a list of certificates to a CS vserver"
         properties: 
           vserver-name: $parent.properties.name
