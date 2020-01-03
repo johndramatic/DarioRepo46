@@ -1,5 +1,5 @@
 --- 
-name: lb-multiple-lb-mon-param-gts-01-01-2020
+name: lb-multiple-lb-mon-param-gts-01-02-2020
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "This stylebook defines the parameters for a load balancing virtual server."
@@ -18,6 +18,6 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters-default-sources:
-    - cmtypes::lbvserver-params-no-vipsnip-gts-01-01-2020
-    - cmtypes::rewrite-config-params-gts-01-01-2020
-    - cmtypes::responder-config-params-gts-01-01-2020 
+    - cmtypes::lbvserver-params-no-vipsnip-gts-01-02-2020
+    - cmtypes::rewrite-config-params-gts-01-02-2020
+    - cmtypes::responder-config-params-gts-01-02-2020 

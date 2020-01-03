@@ -1,5 +1,5 @@
 --- 
-name: services-params-gts-01-01-2020
+name: services-params-gts-01-02-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines the parameters for services."
@@ -37,12 +37,12 @@ parameters:
     name: svc-servers
     label: "Server IPs and Ports"
     description: "List of server IPs and Ports"
-    type: cmtypes::server-ip-port-params-gts-01-01-2020[]
+    type: cmtypes::server-ip-port-params-gts-01-02-2020[]
   - 
     name: svc-server-domains
     label: "Application Servers FQDN names"
     description: "List of the domain names of the application servers that are members of this Load Balanced application"
-    type: cmtypes::server-domain-port-params-gts-01-01-2020[]
+    type: cmtypes::server-domain-port-params-gts-01-02-2020[]
   - 
     name: svcg-advanced
     label: "Advanced Application Server Settings"

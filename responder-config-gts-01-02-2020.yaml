@@ -1,4 +1,4 @@
-name: responder-config-gts-01-01-2020
+name: responder-config-gts-01-02-2020
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: Responder Config StyleBook
@@ -43,7 +43,7 @@ parameters:
     type: string
     default: HTTP  
 parameters-default-sources:
-    - cmtypes::responder-config-params-gts-01-01-2020
+    - cmtypes::responder-config-params-gts-01-02-2020
 components:
     # -
     #   name: responder-enable-feature-comp

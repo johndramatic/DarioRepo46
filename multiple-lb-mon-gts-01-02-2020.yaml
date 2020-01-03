@@ -1,4 +1,4 @@
-name: multiple-lb-mon-gts-01-01-2020 
+name: multiple-lb-mon-gts-01-02-2020 
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "Multi-port VIP Application"
@@ -47,7 +47,7 @@ parameters:
     name: lb-pool
     label: "Pool Details"
     description: "Name of additional server pool"
-    type: stlb::lb-multiple-lb-mon-param-gts-01-01-2020[]
+    type: stlb::lb-multiple-lb-mon-param-gts-01-02-2020[]
     required: true
 components: 
   - 
@@ -59,7 +59,7 @@ components:
       type: snip      
   - 
     name: lb-mon-comps
-    type: stlb::lb-mon-full-gts-01-01-2020
+    type: stlb::lb-mon-full-gts-01-02-2020
     condition: $parameters.lb-pool
     description: "This list of components are used to generate LB Vservers for all the pools used in Content Switching (L7 rules supplied in parameters)"
     repeat: $parameters.lb-pool

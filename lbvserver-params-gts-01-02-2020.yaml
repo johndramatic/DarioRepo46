@@ -1,5 +1,5 @@
 --- 
-name: lbvserver-params-gts-01-01-2020
+name: lbvserver-params-gts-01-02-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines the parameters for a load balancing virtual server."
@@ -142,5 +142,5 @@ parameters:
     gui: 
       collapse_pane: true    
     parameters-default-sources:
-      - cmtypes::vserver-advanced-params-gts-01-01-2020
+      - cmtypes::vserver-advanced-params-gts-01-02-2020
  
