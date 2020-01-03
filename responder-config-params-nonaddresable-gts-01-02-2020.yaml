@@ -1,0 +1,24 @@
+name: responder-config-params-nonaddresable-gts-01-02-2020
+namespace: com.citrix.adc.commontypes
+version: "1.0"
+display-name: Responder Configuration
+private: true
+schema-version: "1.0"
+import-stylebooks: 
+  - 
+    namespace: com.citrix.adc.commontypes
+    version: "1.0"
+    prefix: cmtypes
+parameters:
+    -
+        name: responder-config
+        label: Responder Configs Section
+        type: object
+        gui: 
+            collapse_pane: true  
+        parameters:
+            -
+                name: redirect-urls
+                type: cmtypes::redirect-url-params[]
+                label: Configure URL Redirection
+                description: The URL to which incoming requests are redirected
