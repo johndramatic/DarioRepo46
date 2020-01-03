@@ -19,6 +19,15 @@ import-stylebooks:
     version: "1.0"
 parameters: 
   - 
+    name: appname
+    label: "Load Balanced Application Name"
+    description: "Name of the Load Balanced application"
+    type: string
+    key: true
+    gui:
+      updatable: false
+    required: true
+  - 
     name: lb-virtual-ip
     label: "Load Balanced App Virtual IP address"
     description: "Virtual IP address representing the Load Balanced application"
@@ -67,6 +76,6 @@ components:
     properties-default-sources:
       - $pool
     properties: 
-      appname: $pool.appname
+      appname: $parameters.appname
       lb-virtual-ip: $parameters.lb-virtual-ip
       snip: $parameters.snip
