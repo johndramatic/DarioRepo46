@@ -1,4 +1,4 @@
-name: cs-lb-mon-gts-12-16-2019
+name: cs-lb-mon-gts-01-01-2020
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "HTTP/SSL Content Switched Application with Monitors"
@@ -22,7 +22,7 @@ substitutions:
   cspol-priority(priority): 10100 - 100 * $priority
   lbname-from-poolname(pool-name): $parameters.appname + "-" + $pool-name
 parameters-default-sources:
-  - cmtypes::csvserver-params-gts-12-16-2019
+  - cmtypes::csvserver-params-gts-01-01-2020
 parameters: 
   - 
     name: default-lb-pool
@@ -30,14 +30,14 @@ parameters:
     description: "Details of the Default pool for this application."
     type: object
     parameters-default-sources:
-      - cmtypes::csvserver-params-no-vipsnipport-gts-12-16-2019
-      - cmtypes::rewrite-config-params-gts-12-16-2019
-      - cmtypes::responder-config-params-gts-12-16-2019
+      - cmtypes::csvserver-params-no-vipsnipport-gts-01-01-2020
+      - cmtypes::rewrite-config-params-gts-01-01-2020
+      - cmtypes::responder-config-params-gts-01-01-2020
   - 
     name: pools
     label: "Content Switched App Other Server Pools"
     description: "Details of other server pools for the content switched application."
-    type: "cmtypes::cs-pool-gts-12-16-2019[]"
+    type: "cmtypes::cs-pool-gts-01-01-2020[]"
   - 
     name: cert-sect
     label: "SSL Certificate Configuration"
@@ -60,7 +60,7 @@ components:
   - 
     name: default-lb-mon-comp
     condition: $parameters.default-lb-pool
-    type: stlb::lb-mon-full-gts-12-16-2019
+    type: stlb::lb-mon-full-gts-01-01-2020
     description: "This component is used to generate the only LB Vserver for this config when there are no L7 rules supplied (no Content Switching)."
     properties-default-sources:
       - $parameters.default-lb-pool
@@ -92,7 +92,7 @@ components:
     components: 
       - 
         name: default-cs-lb-bind-comp
-        type: stlb::cs-lb-bind-gts-12-16-2019
+        type: stlb::cs-lb-bind-gts-01-01-2020
         condition: $parameters.default-lb-pool
         description: "This component is used to create and bind CS Policy to the CS vserver"
         properties: 
@@ -101,7 +101,7 @@ components:
           is-default: true
       - 
         name: lb-mon-comps
-        type: stlb::lb-mon-full-gts-12-16-2019
+        type: stlb::lb-mon-full-gts-01-01-2020
         condition: $parameters.pools
         description: "This list of components are used to generate LB Vservers for all the pools used in Content Switching (L7 rules supplied in parameters)"
         repeat: $parameters.pools
@@ -116,7 +116,7 @@ components:
         components:
           - 
             name: cs-lb-bind-comp
-            type: stlb::cs-lb-bind-gts-12-16-2019
+            type: stlb::cs-lb-bind-gts-01-01-2020
             description: "This component is used to create and bind CS Policy to the CS vserver"
             properties: 
               csvserver-name: $parent.parent.properties.name

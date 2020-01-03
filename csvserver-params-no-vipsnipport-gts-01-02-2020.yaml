@@ -1,5 +1,5 @@
 --- 
-name: csvserver-params-no-vipsnipport-gts-12-16-2019
+name: csvserver-params-no-vipsnipport-gts-01-01-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 display-name: "This stylebook defines the parameters for a load balancing virtual server."
@@ -116,7 +116,7 @@ parameters:
     gui: 
       collapse_pane: true    
     parameters-default-sources:
-      - cmtypes::vserver-advanced-params-gts-12-16-2019
+      - cmtypes::vserver-advanced-params-gts-01-01-2020
   - 
     name: svc-service-type
     label: "Application Server Protocol"
@@ -143,7 +143,7 @@ parameters:
     name: svc-servers
     label: "Server IPs and Ports"
     description: "List of server IPs and Ports"
-    type: cmtypes::server-ip-port-params-gts-12-16-2019[]
+    type: cmtypes::server-ip-port-params-gts-01-01-2020[]
   - 
     name: svc-server-domains
     label: "Application Servers FQDN names"
@@ -353,4 +353,4 @@ parameters:
             name: monitors
             label: "List of Monitors"
             description: "List of Monitors to monitor Application Servers"
-            type: cmtypes::monitor-gts-12-16-2019[]
+            type: cmtypes::monitor-gts-01-01-2020[]
