@@ -67,6 +67,7 @@ components:
     properties:
       responder-config: 
         redirect-to-https: false
+        redirect-urls: $parameters.responder-config.redirect-urls
   -
     name: responder-policies-bindings-comp
     type: stlb::vserver-responderpolicies-bindings
