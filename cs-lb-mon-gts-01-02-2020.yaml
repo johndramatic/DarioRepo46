@@ -69,6 +69,8 @@ components:
       lb-virtual-ip: 0.0.0.0
       snip: $parameters.snip
       lb-virtual-port: 0
+      responder-config:
+        redirect-to-https: false
   - 
     name: csvserver-comp
     type: ns::csvserver
@@ -112,7 +114,9 @@ components:
           appname: $parameters.appname + "-cs-" + $pool.lb-pool.appname
           lb-virtual-ip: 0.0.0.0
           snip: $parameters.snip
-          lb-virtual-port: 0          
+          lb-virtual-port: 0
+          responder-config:
+            redirect-to-https: false          
         components:
           - 
             name: cs-lb-bind-comp
