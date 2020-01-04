@@ -65,7 +65,7 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      responder-config: true
+      responder-config: 
         redirect-to-https: false
   -
     name: responder-policies-bindings-comp
