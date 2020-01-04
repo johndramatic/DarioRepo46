@@ -118,7 +118,7 @@ components:
           lb-virtual-port: 0
           responder-config:
             redirect-to-https: false
-            redirect-urls: $parameters.lb-pool.responder-config.redirect-urls
+            redirect-urls: $pool.lb-pool.responder-config.redirect-urls
         components:
           - 
             name: cs-lb-bind-comp
