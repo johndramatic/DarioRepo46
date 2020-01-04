@@ -71,6 +71,7 @@ components:
       lb-virtual-port: 0
       responder-config: 
         redirect-to-https: false
+        redirect-url: $parameters.default-lb-pool.redirect-urls
   - 
     name: csvserver-comp
     type: ns::csvserver
