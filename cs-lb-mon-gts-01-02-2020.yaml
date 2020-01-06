@@ -128,14 +128,7 @@ components:
               csvserver-name: $parent.parent.properties.name
               lbvserver-name: $parent.outputs.lbvserver.properties.name
               pool: $pool
-      - 
-        name: existing-cert-bindings-comp
-        type: ns::sslvserver_sslcertkey_binding 
-        description: "This component binds and existing certkey entities to a vserver."
-        condition: "$parameters.cert-sect.existing-certificate-name 
-        properties: 
-          vservername: $parent.properties.name
-          certkeyname: $parameters.cert-sect.existing-certificate-name
+
       - 
         name: csvserver-certs-bindings
         type: stlb::vserver-certs-binds
