@@ -144,6 +144,7 @@ components:
             type: ns::servicegroup_servicegroupmember_binding
             repeat: $parameters.svc-server-domains
             repeat-item: server
+            repeat-condition: $server.add-server
             properties: 
               servername: $server.domain + "-server"
               port: $server.port
