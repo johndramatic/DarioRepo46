@@ -120,6 +120,16 @@ components:
               port: $server.port
               weight?: $server.weight
               servicegroupname: $parent.properties.servicegroupname
+          -  
+            name: server-members-fqdn
+            type: ns::server
+            condition: $parameters.svc-server-domains
+            repeat: $parameters.svc-server-domains
+            repeat-item: server
+            repeat-condition: $server.add-server
+            properties: 
+              name: $server.domain + "-server"
+              domain: $server.domain
           - 
             name: svg-fqdn-members
             type: ns::servicegroup_servicegroupmember_binding
@@ -127,7 +137,7 @@ components:
             repeat-item: server
             repeat-condition: $server.add-server
             properties: 
-              servername: $server.domain
+              servername: $server.domain + "-server"
               port: $server.port
               weight?: $server.weight
               servicegroupname: $parent.properties.servicegroupname
