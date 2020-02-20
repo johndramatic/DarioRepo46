@@ -1,5 +1,5 @@
 --- 
-name: lb-mon-gts-01-02-2020
+name: lb-mon-gts-02-20-2020
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 description: "This stylebook defines a typical Load Balanced Application configuration with monitors."
@@ -20,7 +20,7 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters-default-sources:
-  - stlb::lb-gts-01-02-2020
+  - stlb::lb-gts-02-20-2020
 parameters:
   -
     name: monitor-list
@@ -49,13 +49,13 @@ parameters:
             name: monitors
             label: "List of Monitors"
             description: "List of Monitors to monitor Application Servers"
-            type: cmtypes::monitor-gts-01-02-2020[]
+            type: cmtypes::monitor-gts-02-20-2020[]
 substitutions:
   mon-name(appname, monname): $appname + "-mon-" + $monname
 components: 
   - 
     name: lb-comp
-    type: stlb::lb-gts-01-02-2020 
+    type: stlb::lb-gts-02-20-2020 
     properties-default-sources:
       - $parameters
   -
@@ -74,7 +74,7 @@ components:
       monitor_name: ping
   -
     name: monitors-comp
-    type: cmtypes::monitor-gts-01-02-2020
+    type: cmtypes::monitor-gts-02-20-2020
     condition: $parameters.monitor-list.adv-mon.monitors
     repeat: $parameters.monitor-list.adv-mon.monitors
     repeat-item: mon

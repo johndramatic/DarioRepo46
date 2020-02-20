@@ -1,122 +1,16 @@
 --- 
-name: csvserver-params-no-vipsnipport-gts-01-02-2020
+name: services-params-gts-02-20-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
-display-name: "This stylebook defines the parameters for a load balancing virtual server."
+description: "This stylebook defines the parameters for services."
 private: true
-description: |    
-    This StyleBook builds on, and augments the lb-mon StyleBook by adding the ability    
-    to make use of rewrite, responder and SSL ciphers features of the Citrix ADC
 schema-version: "1.0"
 import-stylebooks: 
-  - 
-    namespace: com.citrix.adc.stylebooks
-    prefix: stlb
-    version: "1.0"
   - 
     namespace: com.citrix.adc.commontypes
     prefix: cmtypes
     version: "1.0"
-parameters:
-  - 
-    name: appname
-    label: "Load Balanced Application Name"
-    description: "Name of the Load Balanced application"
-    type: string
-    key: true
-    gui:
-      updatable: false
-    required: true
-  - 
-    name: lb-service-type
-    label: "Load Balanced App Protocol"
-    description: "Protocol used for the Load Balanced application."
-    type: string
-    default: SSL    
-    required: true
-    gui:
-      updatable: false
-    allowed-values: 
-      - HTTP
-      - SSL
-      - SSL_BRIDGE
-      - TCP
-      - UDP
-      - ANY
-      - DNS
-      - DNS_TCP
-      - FTP
-      - MSSQL
-      - MYSQL
-      - RADIUS
-  - 
-    name: request-id
-    label: "Request ID"
-    description: "Service Now Request ID"
-    type: string
-    pattern: "REQ.*"
-    gui:
-      updatable: false
-  - 
-    name: owner
-    label: "Owner"
-    description: "Service Owner team"
-    type: string
-    required: true
-  - 
-    name: algorithm
-    label: "Load Balanced App Algorithm"
-    description: "Load Balancing algorithm for the application"
-    type: string
-    default: LEASTCONNECTION        
-    allowed-values: 
-      - LEASTCONNECTION
-      - ROUNDROBIN
-      - LEASTRESPONSETIME
-      - SOURCEIPHASH
-  - 
-    name: persistence
-    label: "Load Balanced App Persistence Type"
-    description: "Persistence type used for members of this pool"
-    type: string
-    default: SRCIPDESTIP
-    allowed-values: 
-      - NONE
-      - SOURCEIP
-      - COOKIEINSERT
-      - SRCIPDESTIP
-      - DESTIP
-      - SSLSESSION
-  - 
-    name: timeout
-    label: "Load Balanced App Persistence Timeout"
-    description: "Time period for which a persistence session is in effect."
-    type: number
-    default: 2
-  - 
-    name: persistence-backup
-    label: "Load Balanced App Backup Persistence"
-    description: "Backup persistence type for the virtual server."
-    type: string
-    default: NONE
-    allowed-values: 
-      - NONE
-      - SOURCEIP
-  - 
-    name: backup-persistence-timeout
-    label: "Load Balanced App Backup Persistence Timeout"
-    description: "Time period for which backup persistence is in effect."
-    type: number
-    default: 2
-  - 
-    name: lb-advanced
-    label: "Advanced Load Balancer Settings"
-    description: "Advanced load balancer settings"
-    type: object
-    gui: 
-      collapse_pane: true    
-    parameters-default-sources:
-      - cmtypes::vserver-advanced-params-gts-01-02-2020
+parameters: 
   - 
     name: svc-service-type
     label: "Application Server Protocol"
@@ -143,31 +37,12 @@ parameters:
     name: svc-servers
     label: "Server IPs and Ports"
     description: "List of server IPs and Ports"
-    type: cmtypes::server-ip-port-params-gts-01-02-2020[]
+    type: cmtypes::server-ip-port-params-gts-02-20-2020[]
   - 
     name: svc-server-domains
     label: "Application Servers FQDN names"
     description: "List of the domain names of the application servers that are members of this Load Balanced application"
-    type: object[]
-    parameters: 
-      - 
-        name:  domain
-        label: "Application Server Domain Name"
-        description: "Domain name of the server."
-        type: string
-        required: true
-      - 
-        name: port
-        label: "Application Server Port"
-        description: "TCP port of a server"
-        type: tcp-port
-        default: 80
-      -
-        name: weight
-        label: "Weight"
-        description: "Weight of the service that is bound to the servicegroup"
-        type: number
-        min-value: 1
+    type: cmtypes::server-domain-port-params-gts-02-20-2020[]
   - 
     name: svcg-advanced
     label: "Advanced Application Server Settings"
@@ -308,49 +183,4 @@ parameters:
         allowed-values:
           - "YES"
           - "NO"
-  - 
-    name: cert-sect
-    label: "SSL Certificate Configuration"
-    description: "SSL Certificate Configuration"
-    type: object
-    gui: 
-      collapse_pane: true    
-    parameters:
-      - 
-        name: existing-certificate-name
-        label: "existing-certificate"
-        description: "Name of the existing certificate to be used. Exact match required"
-        type: string
-      - 
-        name: certificates
-        label: "SSL Certificate Settings"
-        description: "Certificates for this virtual server if this load Balanced application is exposed using SSL"
-        type: "cmtypes::certificate[]"
-  -
-    name: monitor-list
-    label: "Monitors to be used"
-    required: true 
-    type: object
-    parameters:  
-      - 
-        name: tcp-mon
-        label: "TCP Monitor"
-        description: "Use TCP Monitor to check port availability on backend server"
-        type: boolean
-        required: true
-      -
-        name: ping-mon
-        label: "Ping Monitor"
-        description: "Use PING Monitor to check ICMP reachability of backend server"
-        type: boolean
-        required: true
-      -
-        name: adv-mon
-        label: "Advanced Monitor"
-        type: object
-        parameters: 
-          -
-            name: monitors
-            label: "List of Monitors"
-            description: "List of Monitors to monitor Application Servers"
-            type: cmtypes::monitor-gts-01-02-2020[]
+

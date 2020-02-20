@@ -1,5 +1,5 @@
 --- 
-name: lb-gts-01-02-2020
+name: lb-gts-02-20-2020
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "HTTP/SSL LoadBalancing StyleBook"
@@ -20,8 +20,8 @@ import-stylebooks:
     prefix: stlb
     version: "1.0"
 parameters-default-sources:
-  - cmtypes::lbvserver-params-gts-01-02-2020
-  - cmtypes::services-params-gts-01-02-2020
+  - cmtypes::lbvserver-params-gts-02-20-2020
+  - cmtypes::services-params-gts-02-20-2020
 parameters: 
   - 
     name: cert-sect
@@ -110,22 +110,13 @@ components:
             properties: 
               name: $parent.parent.properties.name
               servicegroupname: $parent.properties.servicegroupname
-          -
-            name: server-members
-            type: ns::server
-            repeat: $parameters.svc-servers
-            repeat-item: server
-            repeat-condition: $server.add-server
-            properties:
-              name: $server.ad-server-name + "-server"
-              ipaddress: $server.ip
           - 
             name: svg-ip-members
             type: ns::servicegroup_servicegroupmember_binding
             repeat: $parameters.svc-servers
             repeat-item: server
             properties: 
-              servername: $server.ad-server-name + "-server"
+              ip: $server.ip
               port: $server.port
               weight?: $server.weight
               servicegroupname: $parent.properties.servicegroupname

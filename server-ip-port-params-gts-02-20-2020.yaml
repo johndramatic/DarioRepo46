@@ -1,16 +1,22 @@
 --- 
-name: server-domain-port-params-gts-01-02-2020
+name: server-ip-port-params-gts-02-20-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
-description: "This stylebook defines a typical server domain port information."
+description: "This stylebook defines a typical server ip port information."
 private: true
 schema-version: "1.0"
 parameters: 
    - 
-      name:  domain
-      label: "Application Server Domain Name"
-      description: "Domain name of the server."
+      name:  ad-server-name
+      label: "Application Server Name as configured on AD"
+      description: "AD name of the server"
       type: string
+      required: true
+   - 
+      name:  ip
+      label: "Application Server IP Address"
+      description: "IP Address of a server"
+      type: ipaddress
       required: true
    - 
       name: port

@@ -1,5 +1,5 @@
 --- 
-name: lbvserver-params-gts-01-02-2020
+name: lbvserver-params-gts-02-20-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines the parameters for a load balancing virtual server."
@@ -46,6 +46,14 @@ parameters:
         required: true
         default: 255.255.254.0
   - 
+    name: lb-virtual-port
+    label: "Load Balanced App Virtual Port"
+    description: "TCP port representing the Load Balanced application"
+    type: tcp-port
+    gui:
+      updatable: false
+    default: 443
+  - 
     name: lb-service-type
     label: "Load Balanced App Protocol"
     description: "Protocol used for the Load Balanced application."
@@ -67,14 +75,6 @@ parameters:
       - MSSQL
       - MYSQL
       - RADIUS
-  - 
-    name: lb-virtual-port
-    label: "Load Balanced App Virtual Port"
-    description: "TCP port representing the Load Balanced application"
-    type: tcp-port
-    gui:
-      updatable: false
-    default: 443
   - 
     name: request-id
     label: "Request ID"
@@ -142,5 +142,5 @@ parameters:
     gui: 
       collapse_pane: true    
     parameters-default-sources:
-      - cmtypes::vserver-advanced-params-gts-01-02-2020
+      - cmtypes::vserver-advanced-params-gts-02-20-2020
  

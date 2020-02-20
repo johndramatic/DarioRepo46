@@ -1,5 +1,5 @@
 --- 
-name: csvserver-params-gts-01-02-2020
+name: csvserver-params-gts-02-20-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines the parameters for a content switching virtual server."
