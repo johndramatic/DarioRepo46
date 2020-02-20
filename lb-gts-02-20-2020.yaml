@@ -116,6 +116,7 @@ components:
             repeat: $parameters.svc-servers
             repeat-item: server
             properties: 
+              servername: $server.ad-server-name + "-server"
               ip: $server.ip
               port: $server.port
               weight?: $server.weight
