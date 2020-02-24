@@ -53,7 +53,7 @@ components:
   -
     name: lb-config-comp-backup
     type: stlb::lb-mon-full-gts-02-24-2020
-    condition: parameters.protection.backupvserver
+    condition: parameters.protection.backupvserver-param
     properties-default-sources:
       - $parameters.protection.backupvserver-param
     properties:
