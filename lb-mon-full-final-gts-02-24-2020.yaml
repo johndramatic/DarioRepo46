@@ -52,7 +52,8 @@ components:
       type: snip 
   -
     name: lb-config-comp-backup
-    type: stlb::lb-mon-full-gts-02-24-2020 
+    type: stlb::lb-mon-full-gts-02-24-2020
+    condition: parameters.protection.backupvserver
     properties-default-sources:
       - $parameters.protection.backupvserver
     properties:
