@@ -57,6 +57,9 @@ components:
       - $parameters.backupvserver
     properties:
       appname: $parameters.appname + "backup"
+      lb-virtual-ip: 0.0.0.0
+      snip: $parameters.snip
+      lb-virtual-port: 0
   -
     name: lb-config-comp-final
     type: stlb::lb-mon-full-gts-02-20-2020
