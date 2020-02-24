@@ -66,7 +66,7 @@ components:
       timeout?: $parameters.timeout
       insertvserveripport?: $parameters.lb-advanced.insert-vserver-ipport
       redirurl?: $parameters.lb-advanced.redirect-url
-      backupvserver?: $parameters.lb-advanced.backupvserver
+      backupvserver?: $parameters.lb-advanced.backupvserver-param
       somethod?: $parameters.lb-advanced.spillover-method
       sothreshold?: $parameters.lb-advanced.spillover-threshold
       httpprofilename?: $parameters.lb-advanced.http-profile

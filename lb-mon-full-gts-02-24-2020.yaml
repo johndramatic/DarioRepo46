@@ -35,7 +35,7 @@ parameters:
       collapse_pane: true    
     parameters:
       - 
-        name: backupvserver
+        name: backupvserver-param
         label: "Backup Virtual Server"
         description: "Traffic will be directed to this virtual server if load Balanced application down"
         type: "cmtypes::lbvserver-params-backup-vserver-gts-02-24-2020 []"
