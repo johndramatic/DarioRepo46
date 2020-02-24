@@ -68,4 +68,4 @@ components:
       - $parameters
     properties:
       appname: $parameters.appname
-      backupvserver?: $components.lb-config-comp-backup.lb-vserver.properties.name
+      backupvserver?: $components.lb-config-comp-backup.lb-vserver.properties.appname
