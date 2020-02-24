@@ -33,8 +33,8 @@ parameters:
         type: string
       - 
         name: backupvserver
-        label: "Backup Virtual Server"
-        description: "Traffic will be directed to this virtual server if load Balanced application down"
+        label: "Backup Virtual Server HIDDEN"
+        description: "Traffic will be directed to this virtual server if load Balanced application down. | HIDDEN"
         type: string
         gui:
           hidden: true
