@@ -67,7 +67,7 @@ components:
       - $parameters
     properties:
       appname: $parameters.appname
-      redirurl?: $parameters.protection.backup-redirecturl
+      backupvserver?: $components.lb-config-comp-backup.outputs.lbvserver.properties.name
 outputs: 
   - 
     name: lbvserver-backup
