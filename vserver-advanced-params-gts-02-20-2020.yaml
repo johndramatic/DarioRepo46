@@ -32,6 +32,13 @@ parameters:
         description: "URL to which to redirect traffic if the virtual server becomes unavailable."
         type: string
       - 
+        name: backupvserver
+        label: "Backup Virtual Server"
+        description: "Traffic will be directed to this virtual server if load Balanced application down"
+        type: string
+        gui:
+          hidden: true
+      - 
         name: spillover-method
         label: "Load Balanced App Threshold Type"
         description: "Type of threshold that, when exceeded, triggers spillover."
