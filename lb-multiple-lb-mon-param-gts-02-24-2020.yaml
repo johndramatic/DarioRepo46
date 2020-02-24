@@ -1,5 +1,5 @@
 --- 
-name: lb-multiple-lb-mon-param-gts-02-20-2020
+name: lb-multiple-lb-mon-param-gts-02-24-2020 
 namespace: com.citrix.adc.stylebooks
 version: "1.0"
 display-name: "This stylebook defines the parameters for a load balancing virtual server."
@@ -18,9 +18,9 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters-default-sources:
-    - cmtypes::lbvserver-params-no-appnamevipsnip-gts-02-20-2020
-    - cmtypes::rewrite-config-params-gts-02-20-2020
-    - cmtypes::responder-config-params-gts-02-20-2020
+    - cmtypes::lbvserver-params-no-appnamevipsnip-gts-02-24-2020 
+    - cmtypes::rewrite-config-params-gts-02-24-2020 
+    - cmtypes::responder-config-params-gts-02-24-2020 
 parameters: 
   - 
     name: protection
@@ -34,7 +34,7 @@ parameters:
         name: backupvserver
         label: "Backup Virtual Server"
         description: "Traffic will be directed to this virtual server if load Balanced application down"
-        type: "cmtypes::lbvserver-params-backup-vserver-gts-02-20-2020"
+        type: "cmtypes::lbvserver-params-backup-vserver-gts-02-24-2020 "
       - name: redirecturl
         label: "Redirect URL"
         description: "URL to which to redirect traffic if the virtual server becomes unavailable."

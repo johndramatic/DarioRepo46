@@ -1,5 +1,5 @@
 --- 
-name: cs-pool-gts-02-20-2020
+name: cs-pool-gts-02-24-2020 
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This stylebook defines a typical Content-Switching Pool of Servers."
@@ -44,6 +44,6 @@ parameters:
       summary_display: true
       collapse_pane: false
     parameters-default-sources:
-      - cmtypes::csvserver-params-no-vipsnipport-gts-02-20-2020
-      - cmtypes::rewrite-config-params-gts-02-20-2020
-      - cmtypes::responder-config-params-cs-gts-02-20-2020
+      - cmtypes::csvserver-params-no-vipsnipport-gts-02-24-2020 
+      - cmtypes::rewrite-config-params-gts-02-24-2020 
+      - cmtypes::responder-config-params-cs-gts-02-24-2020 

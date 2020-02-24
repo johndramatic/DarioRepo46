@@ -1,5 +1,5 @@
 --- 
-name: vserver-advanced-params-gts-02-20-2020
+name: vserver-advanced-params-gts-02-24-2020 
 namespace: com.citrix.adc.commontypes
 version: "1.0"
 description: "This StyleBook defines advanced settings for CS or LB Vservers."

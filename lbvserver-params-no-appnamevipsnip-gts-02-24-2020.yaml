@@ -1,8 +1,8 @@
 --- 
-name: lbvserver-params-no-vipsnip-gts-02-20-2020
+name: lbvserver-params-no-appnamevipsnip-gts-02-24-2020 
 namespace: com.citrix.adc.commontypes
 version: "1.0"
-display-name: "This stylebook defines the parameters for a load balancing virtual server."
+display-name: "This stylebook defines the parameters for a non addressable load balancing virtual server."
 private: true
 description: |    
     This StyleBook builds on, and augments the lb-mon StyleBook by adding the ability    
@@ -19,14 +19,13 @@ import-stylebooks:
     version: "1.0"
 parameters:
   - 
-    name: appname
-    label: "Load Balanced Application Name"
-    description: "Name of the Load Balanced application"
-    type: string
-    key: true
+    name: lb-virtual-port
+    label: "Load Balanced App Virtual Port"
+    description: "TCP port representing the Load Balanced application"
+    type: tcp-port
     gui:
       updatable: false
-    required: true
+    default: 443
   - 
     name: lb-service-type
     label: "Load Balanced App Protocol"
@@ -49,14 +48,6 @@ parameters:
       - MSSQL
       - MYSQL
       - RADIUS
-  - 
-    name: lb-virtual-port
-    label: "Load Balanced App Virtual Port"
-    description: "TCP port representing the Load Balanced application"
-    type: tcp-port
-    gui:
-      updatable: false
-    default: 443
   - 
     name: request-id
     label: "Request ID"
@@ -124,7 +115,7 @@ parameters:
     gui: 
       collapse_pane: true    
     parameters-default-sources:
-      - cmtypes::vserver-advanced-params-gts-02-20-2020
+      - cmtypes::vserver-advanced-params-gts-02-24-2020 
   - 
     name: svc-service-type
     label: "Application Server Protocol"
@@ -151,12 +142,12 @@ parameters:
     name: svc-servers
     label: "Server IPs and Ports"
     description: "List of server IPs and Ports"
-    type: cmtypes::server-ip-port-params-gts-02-20-2020[]
+    type: cmtypes::server-ip-port-params-gts-02-24-2020 []
   - 
     name: svc-server-domains
     label: "Application Servers FQDN names"
     description: "List of the domain names of the application servers that are members of this Load Balanced application"
-    type: cmtypes::server-domain-port-params-gts-02-20-2020[]
+    type: cmtypes::server-domain-port-params-gts-02-24-2020 []
   - 
     name: svcg-advanced
     label: "Advanced Application Server Settings"
@@ -342,4 +333,4 @@ parameters:
             name: monitors
             label: "List of Monitors"
             description: "List of Monitors to monitor Application Servers"
-            type: cmtypes::monitor-gts-02-20-2020[]
+            type: cmtypes::monitor-gts-02-24-2020 []
