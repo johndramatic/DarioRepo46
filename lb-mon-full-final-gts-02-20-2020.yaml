@@ -66,4 +66,8 @@ components:
     properties-default-sources:
       - $parameters
     properties:
-      appname: $parameters.appname 
+      appname: $parameters.appname
+outputs: 
+  - 
+    name: lbvserver-backup
+    value: $components.lb-config-comp-backup.outputs.lbvserver
