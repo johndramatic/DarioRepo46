@@ -2,7 +2,7 @@
 name: lbvserver-params-no-appnamevipsnip-gts-02-20-2020
 namespace: com.citrix.adc.commontypes
 version: "1.0"
-display-name: "This stylebook defines the parameters for a load balancing virtual server."
+display-name: "This stylebook defines the parameters for a non addressable load balancing virtual server."
 private: true
 description: |    
     This StyleBook builds on, and augments the lb-mon StyleBook by adding the ability    
@@ -18,6 +18,14 @@ import-stylebooks:
     prefix: cmtypes
     version: "1.0"
 parameters:
+  - 
+    name: lb-virtual-port
+    label: "Load Balanced App Virtual Port"
+    description: "TCP port representing the Load Balanced application"
+    type: tcp-port
+    gui:
+      updatable: false
+    default: 443
   - 
     name: lb-service-type
     label: "Load Balanced App Protocol"
@@ -40,14 +48,6 @@ parameters:
       - MSSQL
       - MYSQL
       - RADIUS
-  - 
-    name: lb-virtual-port
-    label: "Load Balanced App Virtual Port"
-    description: "TCP port representing the Load Balanced application"
-    type: tcp-port
-    gui:
-      updatable: false
-    default: 443
   - 
     name: request-id
     label: "Request ID"

@@ -34,4 +34,4 @@ parameters:
         name: backupvserver
         label: "Backup Virtual Server"
         description: "Traffic will be directed to this virtual server if load Balanced application down"
-        type: "cmtypes::certificate[]"
+        type: "cmtypes::lbvserver-params-backup-vserver-gts-02-20-2020"
