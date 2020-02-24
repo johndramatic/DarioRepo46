@@ -60,7 +60,6 @@ components:
       lb-virtual-ip: 0.0.0.0
       snip: $parameters.snip
       lb-virtual-port: 0
-    components:
   -
     name: lb-config-comp-final
     type: stlb::lb-mon-full-gts-02-24-2020 
@@ -68,7 +67,7 @@ components:
       - $parameters
     properties:
       appname: $parameters.appname
-      backupvserver?: $components.lbvserver-backup.outputs.lbvserver.properties.name
+      backupvserver?: $components.lb-config-comp-backup.outputs.lbvserver.properties.name
 outputs: 
   - 
     name: lbvserver-backup
